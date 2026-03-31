@@ -1,0 +1,124 @@
+:root {
+  --bg: #0b1220;
+  --surface: #111827;
+  --surface-soft: #1f2937;
+  --text: #e5e7eb;
+  --accent: #fbbf24;
+  --accent-strong: #f59e0b;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: Inter, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  color: var(--text);
+  background: linear-gradient(180deg, #090b10 0%, #121827 100%);
+}
+
+header.hero {
+  padding: 4rem 1.5rem;
+  text-align: center;
+  background: radial-gradient(circle at top, rgba(251,191,36,.22), transparent 45%), #0a1327;
+}
+
+.hero h1 {
+  margin: 0 0 1rem;
+  font-size: clamp(2.8rem, 5vw, 4.5rem);
+}
+
+.hero p {
+  max-width: 40rem;
+  margin: 0 auto 2rem;
+  color: #d1d5db;
+  line-height: 1.7;
+}
+
+nav {
+  display: inline-flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+nav a {
+  color: var(--text);
+  text-decoration: none;
+  border: 1px solid rgba(255,255,255,.16);
+  padding: 0.75rem 1rem;
+  border-radius: 999px;
+  transition: background 0.2s ease, transform 0.2s ease;
+}
+
+nav a:hover {
+  background: rgba(251,191,36,.14);
+  transform: translateY(-1px);
+}
+
+.section {
+  padding: 4rem 1.5rem;
+}
+
+.section-light {
+  background: #0d1324;
+}
+
+.section-dark {
+  background: #090d1b;
+}
+
+.container {
+  max-width: 960px;
+  margin: 0 auto;
+}
+
+.section h2 {
+  margin-top: 0;
+  font-size: clamp(2rem, 3vw, 2.75rem);
+}
+
+.section article {
+  margin-top: 1.5rem;
+  padding: 1.5rem;
+  background: rgba(255,255,255,.06);
+  border: 1px solid rgba(255,255,255,.08);
+  border-radius: 1rem;
+}
+
+.section article h3 {
+  margin-top: 0;
+}
+
+.gallery-placeholder {
+  display: grid;
+  gap: 1rem;
+  margin-top: 1.5rem;
+}
+
+.gallery-card {
+  padding: 1.5rem;
+  background: rgba(255,255,255,.06);
+  border: 1px dashed rgba(251,191,36,.5);
+  border-radius: 1rem;
+}
+
+code {
+  background: rgba(255,255,255,.08);
+  padding: 0.2rem 0.4rem;
+  border-radius: 0.35rem;
+}
+
+footer {
+  text-align: center;
+  padding: 1.5rem;
+  font-size: 0.95rem;
+  color: #9ca3af;
+}
+
+@media (max-width: 640px) {
+  nav {
+    flex-direction: column;
+  }
+}

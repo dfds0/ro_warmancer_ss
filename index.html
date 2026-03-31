@@ -24,8 +24,13 @@
     <section id="sobre" class="section section-light">
       <div class="container">
         <h2>Objetivo do projeto</h2>
-        <p>Este repositório é uma página de tutorial para a classe/build de Warmancer no Ragnarok Online. Aqui você encontrará informações sobre atributos, equipamentos, cartas e táticas de combate.</p>
-      </div>
+        <p>Este repositório é uma página de tutorial para a classe/build de Warmancer no Ragnarok Online. Aqui você encontrará informações sobre atributos, equipamentos, cartas e táticas de combate.</p>        <div class="chart-card">
+          <h3>Curva de poder por nível</h3>
+          <div class="chart-wrapper">
+            <svg id="powerChart" viewBox="0 0 760 320" aria-label="Gráfico de poder por nível"></svg>
+          </div>
+          <p class="chart-note">Eixo X: nível do personagem de 0 a 200 em intervalos de 5. Eixo Y: picos de poder a cada nível específico.</p>
+        </div>      </div>
     </section>
 
     <section id="tutorial" class="section section-dark">
@@ -43,6 +48,14 @@
           <h3>3. Habilidades</h3>
           <p>Foque em skills de burst e de redução de dano. Warmancer se beneficia de builds com controle de grupo e alto dano em área.</p>
         </article>
+      </div>
+    </section>
+
+    <section id="nivel" class="section section-light">
+      <div class="container">
+        <h2>Pico de poder</h2>
+        <p>Toque em um ponto do gráfico para navegar diretamente ao nível correspondente. Cada bloco abaixo pode conter texto, links externos, imagens e anotações.</p>
+        <div id="levelDetailsContainer" class="level-grid"></div>
       </div>
     </section>
 
@@ -65,10 +78,146 @@
         <p>Comece adicionando suas notas no arquivo <code>README.md</code>, seus tutoriais como novas páginas HTML, e imagens em <code>/images</code>.</p>
       </div>
     </section>
+
+    <section id="como-copiar" class="section section-light">
+      <div class="container">
+        <h2>Como copiar esta página</h2>
+        <p>Para criar um site semelhante, use estes passos compactos:</p>
+        <ul class="compact-list">
+          <li><strong>1.</strong> Crie um repositório no GitHub e abra-o no VS Code com GitHub Copilot.</li>
+          <li><strong>2.</strong> Prompt: <code>Configura um repositório GitHub Pages com HTML/CSS para um tutorial de classe em Ragnarok Online.</code></li>
+          <li><strong>3.</strong> Prompt: <code>Cria estrutura de site com index.html, assets/css/style.css e pasta images.</code></li>
+          <li><strong>4.</strong> Prompt: <code>Adiciona um gráfico SVG de nível x poder com pontos clicáveis que navegam para seções específicas.</code></li>
+          <li><strong>5.</strong> Prompt: <code>Cria seções empilhadas para cada nível de pico com títulos âncora, texto descritivo, imagens e links.</code></li>
+        </ul>
+      </div>
+    </section>
   </main>
 
   <footer>
     <p>Warmancer RO • Página de tutorial criada para GitHub Pages.</p>
   </footer>
+  <script>
+    const dataPoints = [
+      { level: 10, power: 1 },
+      { level: 20, power: 2 },
+      { level: 30, power: 3 },
+      { level: 40, power: 4 },
+      { level: 60, power: 5 },
+      { level: 70, power: 6 },
+      { level: 80, power: 7 },
+      { level: 90, power: 8 },
+      { level: 100, power: 9 },
+      { level: 115, power: 10 },
+      { level: 125, power: 11 },
+      { level: 130, power: 12 },
+      { level: 145, power: 13 },
+      { level: 150, power: 14 },
+      { level: 160, power: 15 }
+    ];
+
+    const svg = document.getElementById('powerChart');
+    const width = 760;
+    const height = 320;
+    const padding = { top: 24, right: 24, bottom: 36, left: 44 };
+    const xRange = [0, 200];
+    const yRange = [0, 16];
+
+    const xScale = value => padding.left + ((value - xRange[0]) / (xRange[1] - xRange[0])) * (width - padding.left - padding.right);
+    const yScale = value => height - padding.bottom - ((value - yRange[0]) / (yRange[1] - yRange[0])) * (height - padding.top - padding.bottom);
+
+    const drawLine = points => points.map((point, index) => `${index === 0 ? 'M' : 'L'} ${xScale(point.level)} ${yScale(point.power)}`).join(' ');
+
+    const createElement = (tag, attrs) => {
+      const el = document.createElementNS('http://www.w3.org/2000/svg', tag);
+      Object.entries(attrs).forEach(([key, value]) => el.setAttribute(key, value));
+      return el;
+    };
+
+    const axis = createElement('line', {
+      x1: padding.left,
+      y1: height - padding.bottom,
+      x2: width - padding.right,
+      y2: height - padding.bottom,
+      stroke: '#64748b',
+      'stroke-width': 1.5
+    });
+
+    svg.appendChild(axis);
+
+    for (let i = xRange[0]; i <= xRange[1]; i += 5) {
+      const x = xScale(i);
+      const tick = createElement('line', {
+        x1: x,
+        y1: height - padding.bottom,
+        x2: x,
+        y2: height - padding.bottom + (i % 20 === 0 ? 10 : 6),
+        stroke: '#475569',
+        'stroke-width': 1
+      });
+      svg.appendChild(tick);
+
+      if (i % 20 === 0) {
+        const label = createElement('text', {
+          x: x,
+          y: height - padding.bottom + 24,
+          fill: '#cbd5e1',
+          'font-size': '12',
+          'text-anchor': 'middle'
+        });
+        label.textContent = i;
+        svg.appendChild(label);
+      }
+    }
+
+    const path = createElement('path', {
+      d: drawLine(dataPoints),
+      fill: 'none',
+      stroke: '#fbbf24',
+      'stroke-width': 3,
+      'stroke-linecap': 'round',
+      'stroke-linejoin': 'round'
+    });
+    svg.appendChild(path);
+
+    const detailsContainer = document.getElementById('levelDetailsContainer');
+
+    dataPoints.forEach(point => {
+      const circle = createElement('circle', {
+        cx: xScale(point.level),
+        cy: yScale(point.power),
+        r: 5,
+        fill: '#fbbf24',
+        stroke: '#111827',
+        'stroke-width': 2,
+        style: 'cursor: pointer;'
+      });
+
+      const title = createElement('title', {});
+      title.textContent = `Nível ${point.level}`;
+      circle.appendChild(title);
+
+      circle.addEventListener('click', () => {
+        const target = document.getElementById(`level-${point.level}`);
+        if (target) {
+          target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }
+      });
+
+      svg.appendChild(circle);
+
+      if (detailsContainer) {
+        const card = document.createElement('section');
+        card.className = 'level-card';
+        card.id = `level-${point.level}`;
+        card.innerHTML = `
+          <h3><a href="#level-${point.level}">Nível ${point.level}</a></h3>
+          <p>Pico de poder: ${point.power}</p>
+          <p>Detalhes do nível ${point.level} para a build de Warmancer.</p>
+        `;
+        detailsContainer.appendChild(card);
+      }
+    });
+  </script>
 </body>
 </html>

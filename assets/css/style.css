@@ -91,6 +91,65 @@ nav a:hover {
   margin-top: 0;
 }
 
+.chart-card {
+  margin-top: 1.5rem;
+  padding: 1.5rem;
+  background: rgba(255,255,255,.06);
+  border: 1px solid rgba(255,255,255,.08);
+  border-radius: 1rem;
+}
+
+.chart-wrapper {
+  margin-top: 1rem;
+  width: 100%;
+  overflow-x: auto;
+}
+
+#powerChart {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+.chart-note {
+  margin-top: 1rem;
+  color: #cbd5e1;
+  font-size: 0.95rem;
+}
+
+.compact-list {
+  margin-top: 1rem;
+  padding-left: 1.25rem;
+  color: #d1d5db;
+}
+
+.compact-list li {
+  margin-bottom: 0.85rem;
+  line-height: 1.5;
+}
+
+.compact-list code {
+  font-size: 0.95rem;
+}
+
+.level-grid {
+  display: grid;
+  gap: 1.5rem;
+  margin-top: 1.5rem;
+  grid-template-columns: 1fr;
+}
+
+.level-card {
+  padding: 1.25rem;
+  background: rgba(255,255,255,.06);
+  border: 1px solid rgba(255,255,255,.08);
+  border-radius: 1rem;
+}
+
+.level-card h3 {
+  margin-top: 0;
+}
+
 .gallery-placeholder {
   display: grid;
   gap: 1rem;

@@ -127,7 +127,8 @@ const renderPowerCurveSegment = (svgId, xRangeSegment) => {
   filteredPoints.forEach(point => {
     const x = xScaleForRange(point.level, xRangeSegment, powerPadding);
     const y = yScale(point.power);
-    const isHighlight = !!point.highlight;
+    const hasHighlight = !!point.highlight;
+    const isHighlight = hasHighlight && svgId !== 'powerChartHigh';
 
     if (isHighlight) {
       const highlightRing = createElement('circle', {
@@ -260,15 +261,114 @@ const renderWeaponAvailabilityChart = () => {
   });
 };
 
+const levelingSegments = [
+  { from: 0, to: 10, label: 'Quest: Primeiros Passos', color: '#fb7185' },
+  { from: 10, to: 15, label: 'Quest: Treinamento do Justiceiro', color: '#fbbf24' },
+  { from: 15, to: 20, label: 'Floresta de Payon 8 (pay_fild08 20, 74)', color: '#38bdf8' },
+  { from: 20, to: 150, label: 'Quest: Grupo do Éden', color: '#8b5cf6' },
+  { from: 150, to: 175, label: 'Liga dos Desbravadores (Instâncias)', color: '#22c55e' },
+  { from: 175, to: 200, label: 'Quest: Além do Limite + Liga dos Desbravadores', color: '#e879f9' }
+];
+
+const xScaleLeveling = value =>
+  powerPadding.left + ((value - 0) / 200) * (width - powerPadding.left - powerPadding.right);
+
+const renderLevelingChart = () => {
+  const svg = document.getElementById('levelingChart');
+  if (!svg) return;
+  clearSvg(svg);
+
+  const chartHeight = height - powerPadding.top - powerPadding.bottom;
+  const rowHeight = chartHeight / levelingSegments.length;
+
+  const axis = createElement('line', {
+    x1: powerPadding.left,
+    y1: height - powerPadding.bottom,
+    x2: width - powerPadding.right,
+    y2: height - powerPadding.bottom,
+    stroke: '#64748b',
+    'stroke-width': 1.5
+  });
+  svg.appendChild(axis);
+
+  for (let i = 0; i <= 200; i += 20) {
+    const x = xScaleLeveling(i);
+    const tick = createElement('line', {
+      x1: x,
+      y1: height - powerPadding.bottom,
+      x2: x,
+      y2: height - powerPadding.bottom + 8,
+      stroke: '#475569',
+      'stroke-width': 1
+    });
+    svg.appendChild(tick);
+
+    const label = createElement('text', {
+      x,
+      y: height - powerPadding.bottom + 24,
+      fill: '#cbd5e1',
+      'font-size': '11',
+      'text-anchor': 'middle'
+    });
+    label.textContent = i;
+    svg.appendChild(label);
+  }
+
+  levelingSegments.forEach((segment, index) => {
+    const y = powerPadding.top + rowHeight * index + rowHeight / 2;
+    const x1 = xScaleLeveling(segment.from);
+    const x2 = xScaleLeveling(segment.to);
+
+    const rect = createElement('rect', {
+      x: x1,
+      y: y - rowHeight * 0.3,
+      width: Math.max(2, x2 - x1),
+      height: rowHeight * 0.6,
+      fill: segment.color,
+      rx: 8,
+      ry: 8,
+      opacity: 0.9
+    });
+    svg.appendChild(rect);
+
+    const label = createElement('text', {
+      x: x1 + 8,
+      y: y + 4,
+      fill: '#111827',
+      'font-size': '12',
+      'font-weight': '700',
+      'text-anchor': 'start'
+    });
+    label.textContent = `${segment.from}–${segment.to}`;
+    svg.appendChild(label);
+  });
+};
+
+const renderLevelingCards = () => {
+  const container = document.getElementById('levelingDetailCards');
+  if (!container) return;
+
+  container.innerHTML = '';
+  levelingSegments.forEach(segment => {
+    const card = document.createElement('section');
+    card.className = 'level-card';
+    card.innerHTML = `
+      <h3>${segment.label}</h3>
+      <p><strong>Níveis:</strong> ${segment.from} a ${segment.to}</p>
+    `;
+    container.appendChild(card);
+  });
+};
+
 const levelGuideItems = [
   {
     level: 10,
-    title: 'Nível 10 — Justiceiro (Modo: Run-\'n\'-gun)',
+    title: 'Nível 10 — Justiceiro',
     objective: 'Desbloquear a classe principal e acessar bônus iniciais de progressão.',
     actions: [
-      { text: 'Completar a quest de mudança de classe para Justiceiro', url: 'https://browiki.org/wiki/Mudança_de_Classe:_Justiceiros' },
+      { html: 'Completar a quest de mudança de classe para <a href="https://browiki.org/wiki/Mudança_de_Classe:_Justiceiros" target="_blank" rel="noreferrer noopener">Justiceiro</a>' },
       { text: 'Realizar o Treinamento de Justiceiro', url: 'https://browiki.org/wiki/Mudança_de_Classe:_Justiceiros#Treinamento' },
-      { text: 'Entrar no clã Balestra Esmeralda através dos Clãs Reais', url: 'https://browiki.org/wiki/Clãs_Reais' }
+      { html: 'Entrar no clã Balestra Esmeralda através dos <a href="https://browiki.org/wiki/Clãs_Reais" target="_blank" rel="noreferrer noopener">Clãs Reais</a>' }
     ],
     result: ['Acesso completo às habilidades de Justiceiro', 'Bônus passivos do clã para auxiliar no leveling inicial']
   },
@@ -277,9 +377,9 @@ const levelGuideItems = [
     title: 'Nível 30 — Equipamento Éden I',
     objective: 'Obter o primeiro conjunto de equipamentos focado em leveling.',
     actions: [
-      { text: 'Completar a quest de Equipamentos do Éden I no Grupo Éden', url: 'https://browiki.org/wiki/Equipamentos_do_Éden' },
-      { text: 'Realizar as missões em Payon Cave' },
-      { text: 'Obter a arma do Éden correspondente', url: 'https://www.divine-pride.net/database/item/13112/' }
+      { html: 'Completar a quest de <a href="https://browiki.org/wiki/Equipamentos_do_Éden" target="_blank" rel="noreferrer noopener">Equipamentos do Éden I</a> no Grupo Éden' },
+      { html: 'Nota: Realizar as missões em Payon Cave' },
+      { html: 'Você deve receber o <a href="https://www.divine-pride.net/database/item/13112/" target="_blank" rel="noreferrer noopener">Revólver do Éden I</a>' }
     ],
     result: ['Primeiro aumento consistente de dano e sobrevivência']
   },
@@ -448,9 +548,11 @@ const renderLevelDetails = lang => {
       <ul class="level-bullets">
         ${item.actions
           .map(action =>
-            action.url
-              ? `<li>${action.text}<br><a href="${action.url}" target="_blank" rel="noreferrer noopener">${action.url}</a></li>`
-              : `<li>${action.text}</li>`
+            action.html
+              ? `<li>${action.html}</li>`
+              : action.url
+                ? `<li>${action.text}<br><a href="${action.url}" target="_blank" rel="noreferrer noopener">${action.url}</a></li>`
+                : `<li>${action.text}</li>`
           )
           .join('')}
       </ul>

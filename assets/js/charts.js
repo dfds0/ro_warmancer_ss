@@ -24,8 +24,8 @@ const weaponDataItems = [
 
 const width = 760;
 const height = 320;
-const powerPadding = { top: 24, right: 24, bottom: 36, left: 44 };
-const weaponPadding = { top: 24, right: 24, bottom: 36, left: 120 };
+const powerPadding = { top: 18, right: 18, bottom: 32, left: 34 };
+const weaponPadding = { top: 18, right: 18, bottom: 32, left: 100 };
 const xRange = [0, 200];
 const yRange = [0, 320];
 
@@ -41,8 +41,22 @@ const clearSvg = svg => {
   }
 };
 
-const xScale = value =>
-  powerPadding.left + ((value - xRange[0]) / (xRange[1] - xRange[0])) * (width - powerPadding.left - powerPadding.right);
+const createPowerChartCard = (cardId, svgId, title, note, ariaLabel) => {
+  const card = document.createElement('div');
+  card.className = 'chart-card';
+  card.id = cardId;
+  card.innerHTML = `
+    <h3>${title}</h3>
+    <div class="chart-wrapper">
+      <svg id="${svgId}" viewBox="0 0 760 320" aria-label="${ariaLabel}"></svg>
+    </div>
+    <p class="chart-note">${note}</p>
+  `;
+  return card;
+};
+
+const xScaleForRange = (value, xRange, padding) =>
+  padding.left + ((value - xRange[0]) / (xRange[1] - xRange[0])) * (width - padding.left - padding.right);
 
 const yScale = value =>
   height - powerPadding.bottom - ((value - yRange[0]) / (yRange[1] - yRange[0])) * (height - powerPadding.top - powerPadding.bottom);
@@ -50,53 +64,57 @@ const yScale = value =>
 const xScaleWeapon = value =>
   weaponPadding.left + ((value - xRange[0]) / (xRange[1] - xRange[0])) * (width - weaponPadding.left - weaponPadding.right);
 
-const renderAxis = svg => {
+const renderAxis = (svg, range, padding, step = 20) => {
   const axis = createElement('line', {
-    x1: powerPadding.left,
-    y1: height - powerPadding.bottom,
-    x2: width - powerPadding.right,
-    y2: height - powerPadding.bottom,
+    x1: padding.left,
+    y1: height - padding.bottom,
+    x2: width - padding.right,
+    y2: height - padding.bottom,
     stroke: '#64748b',
     'stroke-width': 1.5
   });
   svg.appendChild(axis);
 
-  for (let i = xRange[0]; i <= xRange[1]; i += 5) {
-    const x = xScale(i);
+  for (let i = range[0]; i <= range[1]; i += step) {
+    const x = xScaleForRange(i, range, padding);
     const tick = createElement('line', {
       x1: x,
-      y1: height - powerPadding.bottom,
+      y1: height - padding.bottom,
       x2: x,
-      y2: height - powerPadding.bottom + (i % 20 === 0 ? 10 : 6),
+      y2: height - padding.bottom + (i % step === 0 ? 10 : 6),
       stroke: '#475569',
       'stroke-width': 1
     });
     svg.appendChild(tick);
 
-    if (i % 20 === 0) {
-      const label = createElement('text', {
-        x: x,
-        y: height - powerPadding.bottom + 24,
-        fill: '#cbd5e1',
-        'font-size': '12',
-        'text-anchor': 'middle'
-      });
-      label.textContent = i;
-      svg.appendChild(label);
-    }
+    const label = createElement('text', {
+      x: x,
+      y: height - padding.bottom + 24,
+      fill: '#cbd5e1',
+      'font-size': '12',
+      'text-anchor': 'middle'
+    });
+    label.textContent = i;
+    svg.appendChild(label);
   }
 };
 
-const renderPowerCurveChart = () => {
-  const svg = document.getElementById('powerChart');
+const renderPowerCurveSegment = (svgId, xRangeSegment) => {
+  const svg = document.getElementById(svgId);
   if (!svg) return;
   clearSvg(svg);
 
-  renderAxis(svg);
+  renderAxis(svg, xRangeSegment, powerPadding);
+
+  const filteredPoints = powerDataPoints.filter(
+    point => point.level >= xRangeSegment[0] && point.level <= xRangeSegment[1]
+  );
+
+  if (filteredPoints.length === 0) return;
 
   const path = createElement('path', {
-    d: powerDataPoints
-      .map((point, index) => `${index === 0 ? 'M' : 'L'} ${xScale(point.level)} ${yScale(point.power)}`)
+    d: filteredPoints
+      .map((point, index) => `${index === 0 ? 'M' : 'L'} ${xScaleForRange(point.level, xRangeSegment, powerPadding)} ${yScale(point.power)}`)
       .join(' '),
     fill: 'none',
     stroke: '#fbbf24',
@@ -106,8 +124,8 @@ const renderPowerCurveChart = () => {
   });
   svg.appendChild(path);
 
-  powerDataPoints.forEach(point => {
-    const x = xScale(point.level);
+  filteredPoints.forEach(point => {
+    const x = xScaleForRange(point.level, xRangeSegment, powerPadding);
     const y = yScale(point.power);
     const isHighlight = !!point.highlight;
 
@@ -148,6 +166,11 @@ const renderPowerCurveChart = () => {
 
     svg.appendChild(circle);
   });
+};
+
+const renderPowerCurveChart = () => {
+  renderPowerCurveSegment('powerChartLow', [0, 100]);
+  renderPowerCurveSegment('powerChartHigh', [100, 200]);
 };
 
 const renderWeaponAvailabilityChart = () => {
@@ -390,6 +413,30 @@ const renderLevelDetails = lang => {
 
   detailsContainer.innerHTML = '';
   guideItems.forEach(item => {
+    if (item.level === 10) {
+      detailsContainer.appendChild(
+        createPowerChartCard(
+          'powerChartCard0to100',
+          'powerChartLow',
+          'Curva de poder por nível de 0 a 100',
+          'Eixo X: nível 0 a 100',
+          'Gráfico de poder por nível de 0 a 100'
+        )
+      );
+    }
+
+    if (item.level === 100) {
+      detailsContainer.appendChild(
+        createPowerChartCard(
+          'powerChartCard100to200',
+          'powerChartHigh',
+          'Curva de poder por nível de 100 a 200',
+          'Eixo X: nível 100 a 200',
+          'Gráfico de poder por nível de 100 a 200'
+        )
+      );
+    }
+
     const card = document.createElement('section');
     card.className = 'level-card';
     card.id = `level-${item.level}`;
@@ -415,7 +462,7 @@ const renderLevelDetails = lang => {
 };
 
 const updateChartTitles = lang => {
-  document.querySelectorAll('#powerChart circle[data-level]').forEach(circle => {
+  document.querySelectorAll('#powerChartLow circle[data-level], #powerChartHigh circle[data-level]').forEach(circle => {
     const titleEl = circle.querySelector('title');
     if (!titleEl) return;
     const level = circle.getAttribute('data-level');
@@ -425,9 +472,9 @@ const updateChartTitles = lang => {
 
 let currentLang = getPreferredLanguage();
 
+renderLevelDetails(currentLang);
 renderPowerCurveChart();
 renderWeaponAvailabilityChart();
-renderLevelDetails(currentLang);
 translatePage(currentLang);
 updateChartTitles(currentLang);
 
@@ -447,8 +494,9 @@ if (languageButtons.length) {
         localStorage.setItem('siteLanguage', value);
         translatePage(value);
         renderLevelDetails(value);
-        updateChartTitles(value);
+        renderPowerCurveChart();
         renderWeaponAvailabilityChart();
+        updateChartTitles(value);
         setActiveLanguageButton(value);
       }
     });

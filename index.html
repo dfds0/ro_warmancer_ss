@@ -7,15 +7,14 @@
   <link rel="stylesheet" href="assets/css/style.css">
 </head>
 <body>
-  <header class="hero">
+  <header id="top" class="hero">
     <div class="hero-inner">
       <h1 data-i18n="heroHeading">Warmancer RO</h1>
       <p data-i18n="heroSubtext">Guia prático para montar sua build de Warmancer em Ragnarok Online.</p>
       <nav>
-        <a href="#sobre" data-i18n="navSobre">Sobre</a>
-        <a href="#tutorial" data-i18n="navTutorial">Tutorial</a>
-        <a href="#galeria" data-i18n="navGaleria">Galeria</a>
-        <a href="#contato" data-i18n="navContato">Contato</a>
+        <a href="#powerChartCard0to100" data-i18n="navPico1">Pico de Poder 1</a>
+        <a href="#powerChartCard100to200" data-i18n="navPico2">Pico de Poder 2</a>
+        <a href="#estrategia" data-i18n="navEstrategia">Estratégia</a>
       </nav>
       <div class="language-switcher">
         <span data-i18n="languageLabel">Idioma</span>
@@ -44,21 +43,14 @@
       <div class="container">
         <h2 data-i18n="powerPeakTitle">Pico de poder</h2>
         <p data-i18n="powerPeakIntro">Toque em um ponto do gráfico para navegar diretamente ao nível correspondente. Cada bloco abaixo pode conter texto, links externos, imagens e anotações.</p>
-        <div class="chart-card">
-          <h3 data-i18n="chartCardTitle">Curva de poder por nível</h3>
-          <div class="chart-wrapper">
-            <svg id="powerChart" viewBox="0 0 760 320" aria-label="Gráfico de poder por nível"></svg>
-          </div>
-          <p class="chart-note" data-i18n="chartNote">Eixo X: Nível do personagem</p>
-        </div>
         <div id="levelDetailsContainer" class="level-grid"></div>
       </div>
     </section>
 
-    <section id="armas" class="section section-light">
+    <section id="estrategia" class="section section-light">
       <div class="container">
-        <h2 data-i18n="armasTitle">TODO</h2>
-        <p data-i18n="armasIntro">Nesta sessão serão apresentados detalhes sobre armas e habilidades, com recomendações e análises para builds Warmancer.</p>
+        <h2 data-i18n="estrategiaTitle">Estratégia</h2>
+        <p data-i18n="estrategiaIntro">Nesta sessão serão apresentados detalhes sobre armas e habilidades, com recomendações e análises para builds Warmancer.</p>
         <div class="chart-card">
           <h3 data-i18n="weaponChartTitle">Disponibilidade de armas por nível</h3>
           <div class="chart-wrapper">
@@ -121,6 +113,8 @@
 
 
   </main>
+
+  <a href="#top" class="back-to-top" aria-label="Voltar ao topo">↑</a>
 
   <footer>
     <p data-i18n="footerText">Warmancer RO • Página de tutorial criada para GitHub Pages.</p>

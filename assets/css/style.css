@@ -46,8 +46,8 @@ nav {
 nav a {
   color: #ffffff;
   text-decoration: none;
-  background: rgba(251,191,36,.16);
-  border: 1px solid rgba(251,191,36,.35);
+  background: rgba(251,113,133,.18);
+  border: 1px solid rgba(251,113,133,.45);
   padding: 1rem 1.4rem;
   border-radius: 999px;
   font-weight: 600;
@@ -56,8 +56,8 @@ nav a {
 }
 
 nav a:hover {
-  background: rgba(251,191,36,.26);
-  border-color: rgba(251,191,36,.55);
+  background: rgba(251,113,133,.32);
+  border-color: rgba(251,113,133,.75);
   transform: translateY(-1px);
 }
 
@@ -68,22 +68,43 @@ nav a:hover {
   align-items: center;
   justify-content: center;
   padding: 0.9rem 1rem;
-  background: rgba(255,255,255,.08);
-  border: 1px solid rgba(255,255,255,.16);
+  background: rgba(251,113,133,.12);
+  border: 1px solid rgba(251,113,133,.35);
   border-radius: 999px;
 }
 
-.language-switcher label {
+.language-switcher span {
   font-size: 0.95rem;
 }
 
-.language-switcher select {
-  background: rgba(255,255,255,.08);
-  color: var(--text);
-  border: 1px solid rgba(255,255,255,.16);
+.language-buttons {
+  display: inline-flex;
+  gap: 0.5rem;
+}
+
+.language-switcher button {
+  appearance: none;
+  border: 1px solid transparent;
+  background: #fb7185;
+  color: #ffffff;
   border-radius: 999px;
-  padding: 0.65rem 0.95rem;
-  min-width: 9rem;
+  padding: 0.65rem 0.85rem;
+  font-size: 0.95rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.2s ease, transform 0.2s ease, border-color 0.2s ease;
+}
+
+.language-switcher button:hover,
+.language-switcher button:focus {
+  background: #fda4af;
+  outline: none;
+}
+
+.language-switcher button.active {
+  background: #fcd34d;
+  color: #111827;
+  border-color: rgba(20,20,20,.2);
 }
 
 .section {
@@ -195,6 +216,16 @@ nav a:hover {
   margin-top: 0;
   position: relative;
   z-index: 1;
+}
+
+.level-card h3 a {
+  color: #fb7185;
+  text-decoration: none;
+}
+
+.level-card h3 a:hover,
+.level-card h3 a:focus {
+  color: #fde68a;
 }
 
 .gallery-placeholder {

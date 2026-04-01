@@ -13,17 +13,17 @@
       <p data-i18n="heroSubtext">Guia prático para montar sua build de Warmancer em Ragnarok Online.</p>
       <nav>
         <a href="#sobre" data-i18n="navSobre">Sobre</a>
-        <a href="#armas" data-i18n="navTutorial">Tutorial</a>
+        <a href="#tutorial" data-i18n="navTutorial">Tutorial</a>
         <a href="#galeria" data-i18n="navGaleria">Galeria</a>
         <a href="#contato" data-i18n="navContato">Contato</a>
       </nav>
       <div class="language-switcher">
-        <label for="languageSelect" data-i18n="languageLabel">Idioma</label>
-        <select id="languageSelect">
-          <option value="pt-BR" data-i18n="languagePt">Português</option>
-          <option value="en" data-i18n="languageEn">English</option>
-          <option value="es" data-i18n="languageEs">Español</option>
-        </select>
+        <span data-i18n="languageLabel">Idioma</span>
+        <div class="language-buttons">
+          <button type="button" class="lang-btn" data-lang="pt-BR" aria-label="Português">🇧🇷 PT</button>
+          <button type="button" class="lang-btn" data-lang="en" aria-label="English">🇬🇧 EN</button>
+          <button type="button" class="lang-btn" data-lang="es" aria-label="Español">🇪🇸 ES</button>
+        </div>
       </div>
     </div>
   </header>
@@ -49,7 +49,7 @@
           <div class="chart-wrapper">
             <svg id="powerChart" viewBox="0 0 760 320" aria-label="Gráfico de poder por nível"></svg>
           </div>
-          <p class="chart-note" data-i18n="chartNote">Eixo X: nível do personagem de 0 a 200 em intervalos de 5. Eixo Y: picos de poder a cada nível específico.</p>
+          <p class="chart-note" data-i18n="chartNote">Eixo X: Nível do personagem</p>
         </div>
         <div id="levelDetailsContainer" class="level-grid"></div>
       </div>

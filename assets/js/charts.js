@@ -1,17 +1,17 @@
 const powerDataPoints = [
-  { level: 10, power: 1 },
-  { level: 30, power: 2 },
-  { level: 40, power: 3 },
-  { level: 50, power: 4 },
-  { level: 70, power: 5 },
-  { level: 100, power: 6 },
-  { level: 110, power: 7 },
-  { level: 115, power: 8 },
-  { level: 125, power: 9 },
-  { level: 140, power: 10 },
-  { level: 145, power: 11 },
-  { level: 150, power: 12 },
-  { level: 160, power: 13 }
+  { level: 10, power: 100 },
+  { level: 30, power: 110 },
+  { level: 40, power: 113.3 },
+  { level: 50, power: 124.63 },
+  { level: 70, power: 137.09 },
+  { level: 100, power: 164.51 },
+  { level: 110, power: 238.44, highlight: true },
+  { level: 115, power: 238.44 },
+  { level: 125, power: 250.37, highlight: true },
+  { level: 140, power: 270.37, highlight: true },
+  { level: 145, power: 270.37 },
+  { level: 150, power: 300.11, highlight: true },
+  { level: 160, power: 320 }
 ];
 
 const weaponDataItems = [
@@ -27,7 +27,7 @@ const height = 320;
 const powerPadding = { top: 24, right: 24, bottom: 36, left: 44 };
 const weaponPadding = { top: 24, right: 24, bottom: 36, left: 120 };
 const xRange = [0, 200];
-const yRange = [0, 16];
+const yRange = [0, 320];
 
 const createElement = (tag, attrs) => {
   const el = document.createElementNS('http://www.w3.org/2000/svg', tag);
@@ -107,13 +107,30 @@ const renderPowerCurveChart = () => {
   svg.appendChild(path);
 
   powerDataPoints.forEach(point => {
+    const x = xScale(point.level);
+    const y = yScale(point.power);
+    const isHighlight = !!point.highlight;
+
+    if (isHighlight) {
+      const highlightRing = createElement('circle', {
+        cx: x,
+        cy: y,
+        r: 10,
+        fill: 'none',
+        stroke: '#fbbf24',
+        'stroke-width': 2,
+        'stroke-opacity': 0.45
+      });
+      svg.appendChild(highlightRing);
+    }
+
     const circle = createElement('circle', {
-      cx: xScale(point.level),
-      cy: yScale(point.power),
-      r: 5,
-      fill: '#fbbf24',
-      stroke: '#111827',
-      'stroke-width': 2,
+      cx: x,
+      cy: y,
+      r: isHighlight ? 7 : 5,
+      fill: isHighlight ? '#f87171' : '#fbbf24',
+      stroke: isHighlight ? '#ffffff' : '#111827',
+      'stroke-width': isHighlight ? 3 : 2,
       style: 'cursor: pointer;'
     });
     circle.setAttribute('data-level', point.level);
@@ -223,7 +240,7 @@ const renderWeaponAvailabilityChart = () => {
 const levelGuideItems = [
   {
     level: 10,
-    title: 'Nível 10 — Início da Build',
+    title: 'Nível 10 — Justiceiro (Modo: Run-\'n\'-gun)',
     objective: 'Desbloquear a classe principal e acessar bônus iniciais de progressão.',
     actions: [
       { text: 'Completar a quest de mudança de classe para Justiceiro', url: 'https://browiki.org/wiki/Mudança_de_Classe:_Justiceiros' },
@@ -278,7 +295,7 @@ const levelGuideItems = [
   },
   {
     level: 100,
-    title: 'Nível 100 — Transição para Insurgente',
+    title: 'Nível 100 — Insurgente (Modo: Blitzkrieg)',
     objective: 'Desbloquear a classe avançada e iniciar progressão de equipamentos mais fortes.',
     actions: [
       { text: 'Completar a quest de mudança de classe para Insurgente', url: 'https://browiki.org/wiki/Mudança_de_Classe:_Insurgentes' },
@@ -414,17 +431,28 @@ renderLevelDetails(currentLang);
 translatePage(currentLang);
 updateChartTitles(currentLang);
 
-const languageSelect = document.getElementById('languageSelect');
-if (languageSelect) {
-  languageSelect.addEventListener('change', event => {
-    const value = event.target.value;
-    if (translations[value]) {
-      currentLang = value;
-      localStorage.setItem('siteLanguage', value);
-      translatePage(value);
-      renderLevelDetails(value);
-      updateChartTitles(value);
-      renderWeaponAvailabilityChart();
-    }
+const setActiveLanguageButton = lang => {
+  document.querySelectorAll('.lang-btn').forEach(button => {
+    button.classList.toggle('active', button.dataset.lang === lang);
+  });
+};
+
+const languageButtons = document.querySelectorAll('.lang-btn');
+if (languageButtons.length) {
+  languageButtons.forEach(button => {
+    button.addEventListener('click', () => {
+      const value = button.dataset.lang;
+      if (translations[value]) {
+        currentLang = value;
+        localStorage.setItem('siteLanguage', value);
+        translatePage(value);
+        renderLevelDetails(value);
+        updateChartTitles(value);
+        renderWeaponAvailabilityChart();
+        setActiveLanguageButton(value);
+      }
+    });
   });
 }
+
+setActiveLanguageButton(currentLang);

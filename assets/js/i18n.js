@@ -18,7 +18,7 @@ const translations = {
     conceptTitle: "Conceito",
     conceptText: "Mostramos aqui o conceito de Warmancer como build de dano e sobrevivência, unindo gráficos, explicações e exemplos práticos.",
     chartCardTitle: "Curva de poder por nível",
-    chartNote: "Eixo X: nível do personagem de 0 a 200 em intervalos de 5. Eixo Y: picos de poder a cada nível específico.",
+    chartNote: "Eixo X: Nível do personagem",
     weaponChartTitle: "Disponibilidade de armas por nível",
     weaponChartNote: "Cada arma é exibida em uma faixa colorida para o intervalo de nível correspondente.",
     weaponItemFaca: "Faca",
@@ -64,7 +64,7 @@ const translations = {
     levelGuideItems: [
       {
         level: 10,
-        title: "Nível 10 — Início da Build",
+        title: "Nível 10 — Justiceiro (Modo: Run-'n'-gun)",
         objective: "Desbloquear a classe principal e acessar bônus iniciais de progressão.",
         actions: [
           { text: "Completar a quest de mudança de classe para Justiceiro", url: "https://browiki.org/wiki/Mudança_de_Classe:_Justiceiros" },
@@ -119,7 +119,7 @@ const translations = {
       },
       {
         level: 100,
-        title: "Nível 100 — Transição para Insurgente",
+        title: "Nível 100 — Insurgente (Modo: Blitzkrieg)",
         objective: "Desbloquear a classe avançada e iniciar progressão de equipamentos mais fortes.",
         actions: [
           { text: "Completar a quest de mudança de classe para Insurgente", url: "https://browiki.org/wiki/Mudança_de_Classe:_Insurgentes" },

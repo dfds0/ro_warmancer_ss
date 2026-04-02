@@ -69,12 +69,11 @@ const translations = {
     levelGuideItems: [
       {
         level: 10,
-        title: "Nível 10 — Justiceiro (Modo: Run-'n'-gun)",
+        title: "Nível 10 — Justiceiro",
         objective: "Desbloquear a classe principal e acessar bônus iniciais de progressão.",
         actions: [
-          { text: "Completar a quest de mudança de classe para Justiceiro", url: "https://browiki.org/wiki/Mudança_de_Classe:_Justiceiros" },
-          { text: "Realizar o Treinamento de Justiceiro", url: "https://browiki.org/wiki/Mudança_de_Classe:_Justiceiros#Treinamento" },
-          { text: "Entrar no clã Balestra Esmeralda através dos Clãs Reais", url: "https://browiki.org/wiki/Clãs_Reais" }
+          { html: "Completar a quest de mudança de classe para <a href=\"https://browiki.org/wiki/Mudança_de_Classe:_Justiceiros\" target=\"_blank\" rel=\"noreferrer noopener\">Justiceiro</a>" },
+          { html: "Entrar no clã Balestra Esmeralda através dos <a href=\"https://browiki.org/wiki/Clãs_Reais\" target=\"_blank\" rel=\"noreferrer noopener\">Clãs Reais</a>" }
         ],
         result: ["Acesso completo às habilidades de Justiceiro", "Bônus passivos do clã para auxiliar no leveling inicial"]
       },
@@ -83,9 +82,8 @@ const translations = {
         title: "Nível 30 — Equipamento Éden I",
         objective: "Obter o primeiro conjunto de equipamentos focado em leveling.",
         actions: [
-          { text: "Completar a quest de Equipamentos do Éden I no Grupo Éden", url: "https://browiki.org/wiki/Equipamentos_do_Éden" },
-          { text: "Realizar as missões em Payon Cave" },
-          { text: "Obter a arma do Éden correspondente", url: "https://www.divine-pride.net/database/item/13112/" }
+          { html: "Completar a quest de <a href=\"https://browiki.org/wiki/Equipamentos_do_Éden\" target=\"_blank\" rel=\"noreferrer noopener\">Equipamentos do Éden I</a> no Grupo Éden<br><small class=\"action-subnote\">Nota: Realizar as missões em Payon Cave</small>" },
+          { html: "Você deve receber o <a href=\"https://www.divine-pride.net/database/item/13112/\" target=\"_blank\" rel=\"noreferrer noopener\">Revólver do Éden I</a>" }
         ],
         result: ["Primeiro aumento consistente de dano e sobrevivência"]
       },
@@ -94,7 +92,7 @@ const translations = {
         title: "Nível 40 — Encantamento Inicial",
         objective: "Melhorar o equipamento recebido anteriormente.",
         actions: [
-          { text: "Encantar o Chapéu do Éden I com o Administrador Mihael", url: "https://browiki.org/wiki/Equipamentos_do_Éden" }
+          { html: "Encantar o Chapéu do Éden I com o Administrador Mihael" }
         ],
         result: ["Pequeno aumento de atributos que melhora eficiência no leveling"]
       },
@@ -103,9 +101,8 @@ const translations = {
         title: "Nível 50 — Equipamento Éden II",
         objective: "Atualizar o equipamento principal.",
         actions: [
-          { text: "Completar a quest de Equipamentos do Éden II" },
-          { text: "Realizar as missões em Orc Dungeon" },
-          { text: "Obter a nova arma do Éden", url: "https://www.divine-pride.net/database/item/13113/" }
+          { html: "Completar a quest de Equipamentos do Éden II<br><small class=\"action-subnote\">Nota: Realizar as missões em Orc Dungeon</small>" },
+          { html: "Você deve receber o <a href=\"https://www.divine-pride.net/database/item/13113/\" target=\"_blank\" rel=\"noreferrer noopener\">Revólver do Éden II</a>" }
         ],
         result: ["Aumento significativo de ataque"]
       },
@@ -116,21 +113,21 @@ const translations = {
         actions: [
           { text: "Completar a quest de Equipamentos do Éden III" },
           { text: "Realizar as missões em Abadia de Glast Heim" },
-          { text: "Obter a nova arma do Éden", url: "https://www.divine-pride.net/database/item/13114/" },
-          { text: "Encantar a Arma do Éden com o Especialista BK", url: "https://browiki.org/wiki/Equipamentos_do_Éden" }
+          { html: "Você deve receber o <a href=\"https://www.divine-pride.net/database/item/13114/\" target=\"_blank\" rel=\"noreferrer noopener\">Revólver do Éden III</a>" },
+          { html: "Encantar a Arma do Éden com o Especialista BK" }
         ],
         note: "A missão de nível 90 do NPC Ur geralmente não compensa o esforço para esta build.",
         result: ["Novo pico de dano para leveling intermediário"]
       },
       {
         level: 100,
-        title: "Nível 100 — Insurgente (Modo: Blitzkrieg)",
+        title: "Nível 100 — Insurgente",
         objective: "Desbloquear a classe avançada e iniciar progressão de equipamentos mais fortes.",
         actions: [
-          { text: "Completar a quest de mudança de classe para Insurgente", url: "https://browiki.org/wiki/Mudança_de_Classe:_Insurgentes" },
-          { text: "Farmar Moedas do Éden no Grupo Éden", url: "https://browiki.org/wiki/Equipamentos_do_Éden" },
-          { text: "Obter Equipamentos Iniciais", url: "https://browiki.org/wiki/Equipamento_Inicial" },
-          { text: "Entrar no clã Cajado Celeste", url: "https://browiki.org/wiki/Clãs_Reais" }
+          { html: "Completar a quest de mudança de classe para <a href=\"https://browiki.org/wiki/Mudança_de_Classe:_Insurgentes\" target=\"_blank\" rel=\"noreferrer noopener\">Insurgente</a>" },
+          { html: "Farmar Moedas do Éden no Grupo Éden" },
+          { html: "Obter <a href=\"https://browiki.org/wiki/Equipamento_Inicial\" target=\"_blank\" rel=\"noreferrer noopener\">Equipamentos Iniciais</a>" },
+          { html: "Entrar no clã Cajado Celeste através dos <a href=\"https://browiki.org/wiki/Cl%C3%A3s_Reais\" target=\"_blank\" rel=\"noreferrer noopener\">Clãs Reais</a>" }
         ],
         result: ["Acesso às habilidades de Insurgente", "Novo ciclo de progressão de equipamentos"]
       },
@@ -139,12 +136,11 @@ const translations = {
         title: "Nível 110 — Acessórios e Banquete Real",
         objective: "Obter novos acessórios e desbloquear conteúdo importante.",
         actions: [
-          { text: "Comprar Anel Ágil do Éden I ou Colar Ágil do Éden I", url: "https://www.divine-pride.net/database/item/28463/" },
-          { text: "Comprar Anel Ágil do Éden I ou Colar Ágil do Éden I", url: "https://www.divine-pride.net/database/item/28464/" },
-          { text: "Encantar os Acessórios do Éden com a Joalheira", url: "https://browiki.org/wiki/Equipamentos_do_Éden" },
-          { text: "Iniciar a quest Banquete Real", url: "https://browiki.org/wiki/Banquete_Real" },
-          { text: "Comprar Equipamentos de Honra", url: "https://browiki.org/wiki/Equipamentos_de_Honra" },
-          { text: "Comprar Minimetralhadora [2]", url: "https://www.divine-pride.net/database/item/13197/minimetralhadora-2" }
+          { html: "Comprar: <a href=\"https://www.divine-pride.net/database/item/28463/\" target=\"_blank\" rel=\"noreferrer noopener\">Anel Ágil do Éden I</a> ou <a href=\"https://www.divine-pride.net/database/item/28464/\" target=\"_blank\" rel=\"noreferrer noopener\">Colar Ágil do Éden I</a>" },
+          { html: "Encantar os Acessórios do Éden com a Joalheira" },
+          { html: "Quest: <a href=\"https://browiki.org/wiki/Banquete_Real\" target=\"_blank\" rel=\"noreferrer noopener\">Banquete Real</a>" },
+          { html: "Comprar: <a href=\"https://browiki.org/wiki/Equipamentos_de_Honra\" target=\"_blank\" rel=\"noreferrer noopener\">Equipamentos de Honra</a>" },
+          { html: "Comprar: <a href=\"https://www.divine-pride.net/database/item/13197/minimetralhadora-2\" target=\"_blank\" rel=\"noreferrer noopener\">Minimetralhadora [2]</a> (No NPC que vende munição)" }
         ],
         note: "A quest pode começar no nível 100, mas é recomendado iniciar após obter a habilidade Expurgar.",
         result: ["Grande aumento de dano graças à nova arma"]
@@ -154,7 +150,7 @@ const translations = {
         title: "Nível 115 — Sustentação de SP",
         objective: "Melhorar recuperação de recursos.",
         actions: [
-          { text: "Comprar Coturnos do Éden II", url: "https://www.divine-pride.net/database/item/22123/" }
+          { html: "Comprar: <a href=\"https://www.divine-pride.net/database/item/22123/\" target=\"_blank\" rel=\"noreferrer noopener\">Coturnos do Éden II</a>" }
         ],
         result: ["Recuperação de SP que permite usar habilidades continuamente"]
       },
@@ -163,8 +159,8 @@ const translations = {
         title: "Nível 125 — Equipamentos Ilustres",
         objective: "Avançar na progressão de equipamentos.",
         actions: [
-          { text: "Completar a quest Terra Gloria", url: "https://browiki.org/wiki/Terra_Gloria" },
-          { text: "Comprar Equipamentos Ilustres", url: "https://browiki.org/wiki/Equipamentos_de_Honra" }
+          { html: "Quest: <a href=\"https://browiki.org/wiki/Terra_Gloria\" target=\"_blank\" rel=\"noreferrer noopener\">Terra Gloria</a>" },
+          { html: "Comprar: <a href=\"https://browiki.org/wiki/Equipamentos_de_Honra\" target=\"_blank\" rel=\"noreferrer noopener\">Equipamentos Ilustres</a>" }
         ],
         note: "Apesar da quest iniciar no nível 100, aguardar até 125 facilita o uso imediato dos equipamentos."
       },
@@ -173,9 +169,8 @@ const translations = {
         title: "Nível 140 — Nova Arma",
         objective: "Atualizar o armamento principal.",
         actions: [
-          { text: "Comprar Metralhadora da Tempestade [1]", url: "https://www.divine-pride.net/database/item/13199/metralhadora-da-tempestade-1" }
+          { html: "Comprar: <a href=\"https://www.divine-pride.net/database/item/13198/metralhadora-da-tempestade\" target=\"_blank\" rel=\"noreferrer noopener\">Metralhadora da Tempestade</a> (No NPC que vende munição)" }
         ],
-        note: "A arma é vendida por NPCs de munição.",
         result: ["Novo pico de dano para o final do mid-game"]
       },
       {
@@ -183,7 +178,7 @@ const translations = {
         title: "Nível 145 — Sustentação Avançada",
         objective: "Melhorar ainda mais a recuperação de SP.",
         actions: [
-          { text: "Comprar Coturnos do Éden IV", url: "https://www.divine-pride.net/database/item/22125/" }
+          { html: "Comprar: <a href=\"https://www.divine-pride.net/database/item/22125/\" target=\"_blank\" rel=\"noreferrer noopener\">Coturnos do Éden IV</a>" }
         ]
       },
       {
@@ -191,8 +186,8 @@ const translations = {
         title: "Nível 150 — Equipamentos Grácil",
         objective: "Avançar para equipamentos mais fortes.",
         actions: [
-          { text: "Completar a quest Ilusión", url: "https://browiki.org/wiki/Ilusión" },
-          { text: "Comprar Equipamentos Grácil", url: "https://www.divine-pride.net/wiki/Equipamentos_de_Honra" }
+          { html: "Quest: <a href=\"https://browiki.org/wiki/Ilusión\" target=\"_blank\" rel=\"noreferrer noopener\">Ilusión</a>" },
+          { html: "Comprar: <a href=\"https://www.divine-pride.net/wiki/Equipamentos_de_Honra\" target=\"_blank\" rel=\"noreferrer noopener\">Equipamentos Grácil</a>" }
         ]
       },
       {
@@ -200,8 +195,8 @@ const translations = {
         title: "Nível 160 — Utilidade e Mobilidade",
         objective: "Desbloquear habilidades utilitárias através de acessórios.",
         actions: [
-          { text: "Comprar Colar do Éden V (habilidade Teleporte)", url: "https://www.divine-pride.net/database/item/28471/" },
-          { text: "Comprar Anel do Éden V (habilidade Curar)", url: "https://www.divine-pride.net/database/item/28472/" }
+          { html: "Comprar: <a href=\"https://www.divine-pride.net/database/item/28471/\" target=\"_blank\" rel=\"noreferrer noopener\">Colar Ágil do Éden V</a> (Habilidade: Teleporte)" },
+          { html: "Comprar: <a href=\"https://www.divine-pride.net/database/item/28472/\" target=\"_blank\" rel=\"noreferrer noopener\">Anel Ágil do Éden V</a> (Habilidade: Curar)" }
         ],
         result: ["Maior mobilidade", "Autossustentação durante o leveling"]
       }
@@ -281,7 +276,6 @@ const translations = {
         objective: "Unlock the main class and access early progression bonuses.",
         actions: [
           { text: "Complete the class change quest to Justiceiro", url: "https://browiki.org/wiki/Mudança_de_Classe:_Justiceiros" },
-          { text: "Complete the Justiceiro Training", url: "https://browiki.org/wiki/Mudança_de_Classe:_Justiceiros#Treinamento" },
           { text: "Join the Balestra Esmeralda clan through the Royal Clans", url: "https://browiki.org/wiki/Clãs_Reais" }
         ],
         result: ["Full access to Justiceiro skills", "Passive clan bonuses to help early leveling"]
@@ -291,9 +285,8 @@ const translations = {
         title: "Level 30 — Eden Gear I",
         objective: "Obtain the first leveling-focused gear set.",
         actions: [
-          { text: "Complete the Eden Gear I quest in the Eden Group", url: "https://browiki.org/wiki/Equipamentos_do_Éden" },
-          { text: "Complete missions in Payon Cave" },
-          { text: "Obtain the corresponding Eden weapon", url: "https://www.divine-pride.net/database/item/13112/" }
+          { html: "Complete the <a href=\"https://browiki.org/wiki/Equipamentos_do_Éden\" target=\"_blank\" rel=\"noreferrer noopener\">Eden Gear I</a> quest in the Eden Group<br><small class=\"action-subnote\">Note: Complete missions in Payon Cave</small>" },
+          { html: "You should receive the <a href=\"https://www.divine-pride.net/database/item/13112/\" target=\"_blank\" rel=\"noreferrer noopener\">Eden Revolver I</a>" }
         ],
         result: ["First consistent increase in damage and survivability"]
       },
@@ -302,7 +295,7 @@ const translations = {
         title: "Level 40 — Initial Enchantment",
         objective: "Improve the previously received gear.",
         actions: [
-          { text: "Enchant Eden I Hat with Administrator Mihael", url: "https://browiki.org/wiki/Equipamentos_do_Éden" }
+          { html: "Enchant Eden I Hat with Administrator Mihael" }
         ],
         result: ["Small attribute boost that improves leveling efficiency"]
       },
@@ -311,9 +304,8 @@ const translations = {
         title: "Level 50 — Eden Gear II",
         objective: "Upgrade the main gear.",
         actions: [
-          { text: "Complete the Eden Gear II quest" },
-          { text: "Complete missions in Orc Dungeon" },
-          { text: "Obtain the new Eden weapon", url: "https://www.divine-pride.net/database/item/13113/" }
+          { html: "Complete the Eden Gear II quest<br><small class=\"action-subnote\">Note: Complete missions in Orc Dungeon</small>" },
+          { html: "You should receive the <a href=\"https://www.divine-pride.net/database/item/13113/\" target=\"_blank\" rel=\"noreferrer noopener\">Eden Revolver II</a>" }
         ],
         result: ["Significant attack increase"]
       },
@@ -324,21 +316,21 @@ const translations = {
         actions: [
           { text: "Complete the Eden Gear III quest" },
           { text: "Complete missions in Glast Heim Abbey" },
-          { text: "Obtain the new Eden weapon", url: "https://www.divine-pride.net/database/item/13114/" },
-          { text: "Enchant the Eden weapon with BK Specialist", url: "https://browiki.org/wiki/Equipamentos_do_Éden" }
+          { html: "You should receive the <a href=\"https://www.divine-pride.net/database/item/13114/\" target=\"_blank\" rel=\"noreferrer noopener\">Eden Revolver III</a>" },
+          { html: "Enchant the Eden weapon with BK Specialist" }
         ],
         note: "The NPC Ur level 90 mission usually does not pay off for this build.",
         result: ["New damage peak for mid-leveling"]
       },
       {
         level: 100,
-        title: "Level 100 — Insurgente Transition",
+        title: "Level 100 — Insurgente",
         objective: "Unlock the advanced class and start stronger gear progression.",
         actions: [
-          { text: "Complete the class change quest to Insurgente", url: "https://browiki.org/wiki/Mudança_de_Classe:_Insurgentes" },
-          { text: "Farm Eden Coins in the Eden Group", url: "https://browiki.org/wiki/Equipamentos_do_Éden" },
-          { text: "Obtain Starter Gear", url: "https://browiki.org/wiki/Equipamento_Inicial" },
-          { text: "Join the Cajado Celeste clan", url: "https://browiki.org/wiki/Clãs_Reais" }
+          { html: "Complete the class change quest to <a href=\"https://browiki.org/wiki/Mudança_de_Classe:_Insurgentes\" target=\"_blank\" rel=\"noreferrer noopener\">Insurgente</a>" },
+          { html: "Farm Eden Coins in the Eden Group" },
+          { html: "Obtain <a href=\"https://browiki.org/wiki/Equipamento_Inicial\" target=\"_blank\" rel=\"noreferrer noopener\">Starter Gear</a>" },
+          { html: "Join the Cajado Celeste clan through the <a href=\"https://browiki.org/wiki/Cl%C3%A3s_Reais\" target=\"_blank\" rel=\"noreferrer noopener\">Royal Clans</a>" }
         ],
         result: ["Access to Insurgente skills", "New gear progression cycle"]
       },
@@ -347,12 +339,11 @@ const translations = {
         title: "Level 110 — Accessories and Royal Banquet",
         objective: "Obtain new accessories and unlock important content.",
         actions: [
-          { text: "Buy Eden I Agile Ring or Eden I Agile Necklace", url: "https://www.divine-pride.net/database/item/28463/" },
-          { text: "Buy Eden I Agile Ring or Eden I Agile Necklace", url: "https://www.divine-pride.net/database/item/28464/" },
-          { text: "Enchant Eden Accessories with the Jeweler", url: "https://browiki.org/wiki/Equipamentos_do_Éden" },
-          { text: "Start the Royal Banquet quest", url: "https://browiki.org/wiki/Banquete_Real" },
-          { text: "Buy Honor Equipment", url: "https://browiki.org/wiki/Equipamentos_de_Honra" },
-          { text: "Buy Minigun [2]", url: "https://www.divine-pride.net/database/item/13197/minimetralhadora-2" }
+          { html: "Buy: <a href=\"https://www.divine-pride.net/database/item/28463/\" target=\"_blank\" rel=\"noreferrer noopener\">Eden I Agile Ring</a> or <a href=\"https://www.divine-pride.net/database/item/28464/\" target=\"_blank\" rel=\"noreferrer noopener\">Eden I Agile Necklace</a>" },
+          { html: "Enchant Eden Accessories with the Jeweler" },
+          { html: "Quest: <a href=\"https://browiki.org/wiki/Banquete_Real\" target=\"_blank\" rel=\"noreferrer noopener\">Royal Banquet</a>" },
+          { html: "Buy: <a href=\"https://browiki.org/wiki/Equipamentos_de_Honra\" target=\"_blank\" rel=\"noreferrer noopener\">Honor Equipment</a>" },
+          { html: "Buy: <a href=\"https://www.divine-pride.net/database/item/13197/minimetralhadora-2\" target=\"_blank\" rel=\"noreferrer noopener\">Minigun [2]</a> - from the ammunition vendor NPC." }
         ],
         note: "The quest can start at level 100, but it is recommended to begin after obtaining Expurgar.",
         result: ["Large damage increase thanks to the new weapon"]
@@ -362,7 +353,7 @@ const translations = {
         title: "Level 115 — SP Sustain",
         objective: "Improve resource recovery.",
         actions: [
-          { text: "Buy Eden II Boots", url: "https://www.divine-pride.net/database/item/22123/" }
+          { html: "Buy: <a href=\"https://www.divine-pride.net/database/item/22123/\" target=\"_blank\" rel=\"noreferrer noopener\">Eden II Boots</a>" }
         ],
         result: ["SP recovery that allows continuous skill use"]
       },
@@ -371,8 +362,8 @@ const translations = {
         title: "Level 125 — Illustrious Gear",
         objective: "Advance gear progression.",
         actions: [
-          { text: "Complete the Terra Gloria quest", url: "https://browiki.org/wiki/Terra_Gloria" },
-          { text: "Buy Illustrious Gear", url: "https://browiki.org/wiki/Equipamentos_de_Honra" }
+          { html: "Quest: <a href=\"https://browiki.org/wiki/Terra_Gloria\" target=\"_blank\" rel=\"noreferrer noopener\">Terra Gloria</a>" },
+          { html: "Buy: <a href=\"https://browiki.org/wiki/Equipamentos_de_Honra\" target=\"_blank\" rel=\"noreferrer noopener\">Illustrious Gear</a>" }
         ],
         note: "Although the quest starts at level 100, waiting until 125 makes immediate gear use easier."
       },
@@ -381,9 +372,8 @@ const translations = {
         title: "Level 140 — New Weapon",
         objective: "Upgrade the main armament.",
         actions: [
-          { text: "Buy Storm Gatling [1]", url: "https://www.divine-pride.net/database/item/13199/metralhadora-da-tempestade-1" }
+          { html: "Buy: <a href=\"https://www.divine-pride.net/database/item/13198/metralhadora-da-tempestade\" target=\"_blank\" rel=\"noreferrer noopener\">Tempest</a> - from the ammunition vendor NPC." }
         ],
-        note: "The weapon is sold by ammunition NPCs.",
         result: ["New damage peak for late mid-game"]
       },
       {
@@ -391,7 +381,7 @@ const translations = {
         title: "Level 145 — Advanced Sustain",
         objective: "Further improve SP recovery.",
         actions: [
-          { text: "Buy Eden IV Boots", url: "https://www.divine-pride.net/database/item/22125/" }
+          { html: "Buy: <a href=\"https://www.divine-pride.net/database/item/22125/\" target=\"_blank\" rel=\"noreferrer noopener\">Eden IV Boots</a>" }
         ]
       },
       {
@@ -399,8 +389,8 @@ const translations = {
         title: "Level 150 — Graceful Gear",
         objective: "Advance to stronger gear.",
         actions: [
-          { text: "Complete the Ilusión quest", url: "https://browiki.org/wiki/Ilusión" },
-          { text: "Buy Graceful Gear", url: "https://browiki.org/wiki/Equipamentos_de_Honra" }
+          { html: "Quest: <a href=\"https://browiki.org/wiki/Ilusión\" target=\"_blank\" rel=\"noreferrer noopener\">Ilusión</a>" },
+          { html: "Buy: <a href=\"https://www.divine-pride.net/wiki/Equipamentos_de_Honra\" target=\"_blank\" rel=\"noreferrer noopener\">Graceful Gear</a>" }
         ]
       },
       {
@@ -408,8 +398,8 @@ const translations = {
         title: "Level 160 — Utility and Mobility",
         objective: "Unlock utility skills through accessories.",
         actions: [
-          { text: "Buy Eden V Necklace (Teleport skill)", url: "https://www.divine-pride.net/database/item/28471/" },
-          { text: "Buy Eden V Ring (Heal skill)", url: "https://www.divine-pride.net/database/item/28472/" }
+          { html: "Buy: <a href=\"https://www.divine-pride.net/database/item/28471/\" target=\"_blank\" rel=\"noreferrer noopener\">Eden V Agile Necklace</a> (Teleport skill)" },
+          { html: "Buy: <a href=\"https://www.divine-pride.net/database/item/28472/\" target=\"_blank\" rel=\"noreferrer noopener\">Eden V Agile Ring</a> (Heal skill)" }
         ],
         result: ["Higher mobility", "Self-sustain during leveling"]
       }
@@ -489,7 +479,6 @@ const translations = {
         objective: "Desbloquear la clase principal y acceder a bonos iniciales de progresión.",
         actions: [
           { text: "Completar la quest de cambio de clase a Justiceiro", url: "https://browiki.org/wiki/Mudança_de_Classe:_Justiceiros" },
-          { text: "Realizar el Entrenamiento de Justiceiro", url: "https://browiki.org/wiki/Mudança_de_Classe:_Justiceiros#Treinamento" },
           { text: "Entrar en el clan Balestra Esmeralda a través de los Clãs Reais", url: "https://browiki.org/wiki/Clãs_Reais" }
         ],
         result: ["Acceso completo a las habilidades de Justiceiro", "Bonos pasivos del clan para ayudar en el leveling inicial"]
@@ -499,9 +488,8 @@ const translations = {
         title: "Nivel 30 — Equipo Éden I",
         objective: "Obtener el primer conjunto de equipo enfocado en leveling.",
         actions: [
-          { text: "Completar la quest de Equipamentos do Éden I en el Grupo Éden", url: "https://browiki.org/wiki/Equipamentos_do_Éden" },
-          { text: "Realizar las misiones en Payon Cave" },
-          { text: "Obtener el arma del Éden correspondiente", url: "https://www.divine-pride.net/database/item/13112/" }
+          { html: "Completar la quest de <a href=\"https://browiki.org/wiki/Equipamentos_do_Éden\" target=\"_blank\" rel=\"noreferrer noopener\">Equipamentos do Éden I</a> en el Grupo Éden<br><small class=\"action-subnote\">Nota: Realizar las misiones en Payon Cave</small>" },
+          { html: "Debes recibir el <a href=\"https://www.divine-pride.net/database/item/13112/\" target=\"_blank\" rel=\"noreferrer noopener\">Revólver del Éden I</a>" }
         ],
         result: ["Primer aumento consistente de daño y supervivencia"]
       },
@@ -510,7 +498,7 @@ const translations = {
         title: "Nivel 40 — Encantamiento Inicial",
         objective: "Mejorar el equipo recibido anteriormente.",
         actions: [
-          { text: "Encantar el Sombrero del Éden I con el Administrador Mihael", url: "https://browiki.org/wiki/Equipamentos_do_Éden" }
+          { html: "Encantar el Sombrero del Éden I con el Administrador Mihael" }
         ],
         result: ["Pequeño aumento de atributos que mejora la eficiencia en el leveling"]
       },
@@ -519,9 +507,8 @@ const translations = {
         title: "Nivel 50 — Equipo Éden II",
         objective: "Actualizar el equipo principal.",
         actions: [
-          { text: "Completar la quest de Equipamentos do Éden II" },
-          { text: "Realizar las misiones en Orc Dungeon" },
-          { text: "Obtener la nueva arma del Éden", url: "https://www.divine-pride.net/database/item/13113/" }
+          { html: "Completar la quest de Equipamentos do Éden II<br><small class=\"action-subnote\">Nota: Realizar las misiones en Orc Dungeon</small>" },
+          { html: "Debes recibir el <a href=\"https://www.divine-pride.net/database/item/13113/\" target=\"_blank\" rel=\"noreferrer noopener\">Revólver del Éden II</a>" }
         ],
         result: ["Aumento significativo de ataque"]
       },
@@ -532,21 +519,21 @@ const translations = {
         actions: [
           { text: "Completar la quest de Equipamentos do Éden III" },
           { text: "Realizar las misiones en Abadia de Glast Heim" },
-          { text: "Obtener la nueva arma del Éden", url: "https://www.divine-pride.net/database/item/13114/" },
-          { text: "Encantar el Arma del Éden con el Especialista BK", url: "https://browiki.org/wiki/Equipamentos_do_Éden" }
+          { html: "Debes recibir el <a href=\"https://www.divine-pride.net/database/item/13114/\" target=\"_blank\" rel=\"noreferrer noopener\">Revólver del Éden III</a>" },
+          { html: "Encantar el Arma del Éden con el Especialista BK" }
         ],
         note: "La misión de nivel 90 del NPC Ur generalmente no compensa el esfuerzo para esta build.",
         result: ["Nuevo pico de daño para leveling intermedio"]
       },
       {
         level: 100,
-        title: "Nivel 100 — Transición a Insurgente",
+        title: "Nivel 100 — Insurgente",
         objective: "Desbloquear la clase avanzada e iniciar progresión de equipo más fuerte.",
         actions: [
-          { text: "Completar la quest de cambio de clase a Insurgente", url: "https://browiki.org/wiki/Mudança_de_Classe:_Insurgentes" },
-          { text: "Farmear Monedas del Éden en el Grupo Éden", url: "https://browiki.org/wiki/Equipamentos_do_Éden" },
-          { text: "Obtener Equipamiento Inicial", url: "https://browiki.org/wiki/Equipamento_Inicial" },
-          { text: "Entrar en el clan Cajado Celeste", url: "https://browiki.org/wiki/Clãs_Reais" }
+          { html: "Completar la quest de cambio de clase a <a href=\"https://browiki.org/wiki/Mudança_de_Classe:_Insurgentes\" target=\"_blank\" rel=\"noreferrer noopener\">Insurgente</a>" },
+          { html: "Farmear Monedas del Éden en el Grupo Éden" },
+          { html: "Obtener <a href=\"https://browiki.org/wiki/Equipamento_Inicial\" target=\"_blank\" rel=\"noreferrer noopener\">Equipamiento Inicial</a>" },
+          { html: "Entrar en el clan Cajado Celeste a través de los <a href=\"https://browiki.org/wiki/Cl%C3%A3s_Reais\" target=\"_blank\" rel=\"noreferrer noopener\">Clãs Reais</a>" }
         ],
         result: ["Acceso a las habilidades de Insurgente", "Nuevo ciclo de progresión de equipo"]
       },
@@ -555,12 +542,11 @@ const translations = {
         title: "Nivel 110 — Accesorios y Banquete Real",
         objective: "Obtener nuevos accesorios y desbloquear contenido importante.",
         actions: [
-          { text: "Comprar Anillo Ágil del Éden I o Collar Ágil del Éden I", url: "https://www.divine-pride.net/database/item/28463/" },
-          { text: "Comprar Anillo Ágil del Éden I o Collar Ágil del Éden I", url: "https://www.divine-pride.net/database/item/28464/" },
-          { text: "Encantar los Accesorios del Éden con la Joyera", url: "https://browiki.org/wiki/Equipamentos_do_Éden" },
-          { text: "Iniciar la quest Banquete Real", url: "https://browiki.org/wiki/Banquete_Real" },
-          { text: "Comprar Equipamentos de Honra", url: "https://browiki.org/wiki/Equipamentos_de_Honra" },
-          { text: "Comprar Minimetralhadora [2]", url: "https://www.divine-pride.net/database/item/13197/minimetralhadora-2" }
+          { html: "Comprar: <a href=\"https://www.divine-pride.net/database/item/28463/\" target=\"_blank\" rel=\"noreferrer noopener\">Anillo Ágil del Éden I</a> o <a href=\"https://www.divine-pride.net/database/item/28464/\" target=\"_blank\" rel=\"noreferrer noopener\">Collar Ágil del Éden I</a>" },
+          { html: "Encantar los Accesorios del Éden con la Joyera" },
+          { html: "Quest: <a href=\"https://browiki.org/wiki/Banquete_Real\" target=\"_blank\" rel=\"noreferrer noopener\">Banquete Real</a>" },
+          { html: "Comprar: <a href=\"https://browiki.org/wiki/Equipamentos_de_Honra\" target=\"_blank\" rel=\"noreferrer noopener\">Equipamentos de Honra</a>" },
+          { html: "Comprar: <a href=\"https://www.divine-pride.net/database/item/13197/minimetralhadora-2\" target=\"_blank\" rel=\"noreferrer noopener\">Minimetralhadora [2]</a> - en el NPC que vende munición." }
         ],
         note: "La quest puede comenzar en nivel 100, pero se recomienda iniciar después de obtener la habilidad Expurgar.",
         result: ["Gran aumento de daño gracias a la nueva arma"]
@@ -570,7 +556,7 @@ const translations = {
         title: "Nivel 115 — Sustentación de SP",
         objective: "Mejorar la recuperación de recursos.",
         actions: [
-          { text: "Comprar Coturnos del Éden II", url: "https://www.divine-pride.net/database/item/22123/" }
+          { html: "Comprar: <a href=\"https://www.divine-pride.net/database/item/22123/\" target=\"_blank\" rel=\"noreferrer noopener\">Coturnos del Éden II</a>" }
         ],
         result: ["Recuperación de SP que permite usar habilidades continuamente"]
       },
@@ -579,8 +565,8 @@ const translations = {
         title: "Nivel 125 — Equipamientos Ilustres",
         objective: "Avanzar en la progresión de equipo.",
         actions: [
-          { text: "Completar la quest Terra Gloria", url: "https://browiki.org/wiki/Terra_Gloria" },
-          { text: "Comprar Equipamientos Ilustres", url: "https://browiki.org/wiki/Equipamentos_de_Honra" }
+          { html: "Quest: <a href=\"https://browiki.org/wiki/Terra_Gloria\" target=\"_blank\" rel=\"noreferrer noopener\">Terra Gloria</a>" },
+          { html: "Comprar: <a href=\"https://browiki.org/wiki/Equipamentos_de_Honra\" target=\"_blank\" rel=\"noreferrer noopener\">Equipamientos Ilustres</a>" }
         ],
         note: "Aunque la quest comienza en nivel 100, esperar hasta 125 facilita el uso inmediato del equipo."
       },
@@ -589,9 +575,8 @@ const translations = {
         title: "Nivel 140 — Nueva Arma",
         objective: "Actualizar el armamento principal.",
         actions: [
-          { text: "Comprar Metralhadora da Tempestade [1]", url: "https://www.divine-pride.net/database/item/13199/metralhadora-da-tempestade-1" }
+          { html: "Comprar: <a href=\"https://www.divine-pride.net/database/item/13198/metralhadora-da-tempestade\" target=\"_blank\" rel=\"noreferrer noopener\">Metralhadora da Tempestade</a> - en el NPC que vende munición." }
         ],
-        note: "El arma se vende por NPCs de munición.",
         result: ["Nuevo pico de daño para el final del mid-game"]
       },
       {
@@ -599,7 +584,7 @@ const translations = {
         title: "Nivel 145 — Sustentación Avanzada",
         objective: "Mejorar aún más la recuperación de SP.",
         actions: [
-          { text: "Comprar Coturnos del Éden IV", url: "https://www.divine-pride.net/database/item/22125/" }
+          { html: "Comprar: <a href=\"https://www.divine-pride.net/database/item/22125/\" target=\"_blank\" rel=\"noreferrer noopener\">Coturnos del Éden IV</a>" }
         ]
       },
       {
@@ -607,8 +592,8 @@ const translations = {
         title: "Nivel 150 — Equipamientos Grácil",
         objective: "Avanzar a equipos más fuertes.",
         actions: [
-          { text: "Completar la quest Ilusión", url: "https://browiki.org/wiki/Ilusión" },
-          { text: "Comprar Equipamientos Grácil", url: "https://www.divine-pride.net/database/item/Equipamentos_de_Honra" }
+          { html: "Quest: <a href=\"https://browiki.org/wiki/Ilusión\" target=\"_blank\" rel=\"noreferrer noopener\">Ilusión</a>" },
+          { html: "Comprar: <a href=\"https://www.divine-pride.net/wiki/Equipamentos_de_Honra\" target=\"_blank\" rel=\"noreferrer noopener\">Equipamientos Grácil</a>" }
         ]
       },
       {
@@ -616,8 +601,8 @@ const translations = {
         title: "Nivel 160 — Utilidad y Movilidad",
         objective: "Desbloquear habilidades utilitarias a través de accesorios.",
         actions: [
-          { text: "Comprar Collar del Éden V (habilidad Teletransporte)", url: "https://www.divine-pride.net/database/item/28471/" },
-          { text: "Comprar Anillo del Éden V (habilidad Curar)", url: "https://www.divine-pride.net/database/item/28472/" }
+          { html: "Comprar: <a href=\"https://www.divine-pride.net/database/item/28471/\" target=\"_blank\" rel=\"noreferrer noopener\">Collar Ágil del Éden V</a> (habilidad Teletransporte)" },
+          { html: "Comprar: <a href=\"https://www.divine-pride.net/database/item/28472/\" target=\"_blank\" rel=\"noreferrer noopener\">Anillo Ágil del Éden V</a> (habilidad Curar)" }
         ],
         result: ["Mayor movilidad", "Autosustento durante el leveling"]
       }

@@ -258,6 +258,15 @@ code {
   margin-bottom: 0.5rem;
 }
 
+.level-bullets .action-subnote {
+  display: block;
+  margin-top: 0.35rem;
+  color: #9ca3af;
+  font-size: 0.9em;
+  line-height: 1.45;
+  font-weight: 400;
+}
+
 footer {
   text-align: center;
   padding: 1.5rem;

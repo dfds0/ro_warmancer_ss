@@ -272,10 +272,10 @@ const levelGuideItems = [
     title: 'Nível 10 — Justiceiro',
     objective: 'Desbloquear a classe principal e acessar bônus iniciais de progressão.',
     actions: [
-      { html: 'Completar a quest de mudança de classe para <a href="https://browiki.org/wiki/Mudan%C3%A7a_de_Classe:_Justiceiros" target="_blank" rel="noreferrer noopener">Justiceiro</a>' },
-      { html: 'Entrar no clã Balestra Esmeralda através dos <a href="https://browiki.org/wiki/Cl%C3%A3s_Reais" target="_blank" rel="noreferrer noopener">Clãs Reais</a>' }
+      { html: 'Completar a quest de mudança de classe para <a href="https://browiki.org/wiki/Mudan%C3%A7a_de_Classe:_Justiceiros" target="_blank" rel="noreferrer noopener">Justiceiro</a>.' },
+      { html: 'Entrar no clã Balestra Esmeralda por meio dos <a href="https://browiki.org/wiki/Cl%C3%A3s_Reais" target="_blank" rel="noreferrer noopener">Clãs Reais</a>.' }
     ],
-    result: ['Acesso completo às habilidades de Justiceiro', 'Bônus passivos do clã para auxiliar no leveling inicial'],
+    result: ['Acesso completo às habilidades de Justiceiro.', 'Bônus passivos do clã para auxiliar no leveling inicial.'],
     image: { src: 'assets/images/rifle_iniciante.png', alt: 'Rifle de Iniciante' }
   },
   {
@@ -283,28 +283,28 @@ const levelGuideItems = [
     title: 'Nível 30 — Equipamento Éden I',
     objective: 'Obter o primeiro conjunto de equipamentos focado em leveling.',
     actions: [
-      { html: 'Completar a quest de <a href="https://browiki.org/wiki/Equipamentos_do_%C3%89den" target="_blank" rel="noreferrer noopener">Equipamentos do Éden I</a> no Grupo Éden<br><small class="action-subnote">Nota: Realizar as missões em Payon Cave</small>' },
-      { html: 'Você deve receber o <a href="https://www.divine-pride.net/database/item/13112/" target="_blank" rel="noreferrer noopener">Revólver do Éden I</a>' }
+      { html: 'Completar a quest de <a href="https://browiki.org/wiki/Equipamentos_do_%C3%89den" target="_blank" rel="noreferrer noopener">Equipamentos do Éden I</a> no Grupo Éden.<br><small class="action-subnote">Nota: realizar as missões em Payon Cave</small>.' },
+      { html: 'Você deve receber o <a href="https://www.divine-pride.net/database/item/13112/" target="_blank" rel="noreferrer noopener">Revólver do Éden I</a>.' }
     ],
-    result: ['Primeiro aumento consistente de dano e sobrevivência'],
+    result: ['Primeiro aumento consistente de dano e sobrevivência.'],
     image: { src: 'assets/images/arma_eden_1.png', alt: 'Revólver do Éden I' }
   },
   {
     level: 40,
     title: 'Nível 40 — Encantamento Inicial',
     objective: 'Melhorar o equipamento recebido anteriormente.',
-    actions: [{ html: 'Encantar o Chapéu do Éden I com o Administrador Mihael' }],
-    result: ['Pequeno aumento de atributos que melhora eficiência no leveling']
+    actions: [{ html: 'Encantar o Chapéu do Éden I com o Administrador Mihael.' }],
+    result: ['Pequeno aumento de atributos que melhora eficiência no leveling.']
   },
   {
     level: 50,
     title: 'Nível 50 — Equipamento Éden II',
     objective: 'Atualizar o equipamento principal.',
     actions: [
-      { html: 'Completar a quest de Equipamentos do Éden II<br><small class="action-subnote">Nota: Realizar as missões em Orc Dungeon</small>' },
+      { html: 'Completar a quest de Equipamentos do Éden II<br><small class="action-subnote">Nota: Realizar as missões em Orc Dungeon</small>.' },
       { html: 'Você deve receber o <a href="https://www.divine-pride.net/database/item/13113/" target="_blank" rel="noreferrer noopener">Revólver do Éden II</a>' }
     ],
-    result: ['Aumento significativo de ataque'],
+    result: ['Aumento significativo de ataque.'],
     image: { src: 'assets/images/arma_eden_2.png', alt: 'Revólver do Éden II' }
   },
   {
@@ -312,13 +312,13 @@ const levelGuideItems = [
     title: 'Nível 70 — Equipamento Éden III',
     objective: 'Preparar a build para a transição de classes futuras.',
     actions: [
-      { text: 'Completar a quest de Equipamentos do Éden III' },
-      { text: 'Realizar as missões em Abadia de Glast Heim' },
-      { html: 'Você deve receber o <a href="https://www.divine-pride.net/database/item/13114/" target="_blank" rel="noreferrer noopener">Revólver do Éden III</a>' },
-      { html: 'Encantar a Arma do Éden com o Especialista BK' }
+      { text: 'Completar a quest de Equipamentos do Éden III.' },
+      { text: 'Realizar as missões em Abadia de Glast Heim.' },
+      { html: 'Você deve receber o <a href="https://www.divine-pride.net/database/item/13114/" target="_blank" rel="noreferrer noopener">Revólver do Éden III</a>.' },
+      { html: 'Encantar a Arma do Éden com o Especialista BK.' }
     ],
     note: 'A missão de nível 90 do NPC Ur geralmente não compensa o esforço para esta build.',
-    result: ['Novo pico de dano para leveling intermediário'],
+    result: ['Novo pico de dano para leveling intermediário.'],
     image: { src: 'assets/images/arma_eden_3.png', alt: 'Revólver do Éden III' }
   },
   {
@@ -326,12 +326,12 @@ const levelGuideItems = [
     title: 'Nível 100 — Insurgente',
     objective: 'Desbloquear a classe avançada e iniciar progressão de equipamentos mais fortes.',
     actions: [
-      { html: 'Completar a quest de mudança de classe para <a href="https://browiki.org/wiki/Mudan%C3%A7a_de_Classe:_Insurgentes" target="_blank" rel="noreferrer noopener">Insurgente</a>' },
-      { html: 'Farmar Moedas do Éden no Grupo Éden' },
-      { html: 'Obter <a href="https://browiki.org/wiki/Equipamento_Inicial" target="_blank" rel="noreferrer noopener">Equipamentos Iniciais</a>' },
-      { html: 'Entrar no clã Cajado Celeste através dos <a href="https://browiki.org/wiki/Cl%C3%A3s_Reais" target="_blank" rel="noreferrer noopener">Clãs Reais</a>' }
+      { html: 'Completar a quest de mudança de classe para <a href="https://browiki.org/wiki/Mudan%C3%A7a_de_Classe:_Insurgentes" target="_blank" rel="noreferrer noopener">Insurgente</a>.' },
+      { html: 'Farmar Moedas do Éden no Grupo Éden.' },
+      { html: 'Obter <a href="https://browiki.org/wiki/Equipamento_Inicial" target="_blank" rel="noreferrer noopener">Equipamentos Iniciais</a>.' },
+      { html: 'Entrar no clã Cajado Celeste por meio dos <a href="https://browiki.org/wiki/Cl%C3%A3s_Reais" target="_blank" rel="noreferrer noopener">Clãs Reais</a>.' }
     ],
-    result: ['Acesso às habilidades de Insurgente', 'Novo ciclo de progressão de equipamentos'],
+    result: ['Acesso às habilidades de Insurgente.', 'Novo ciclo de progressão de equipamentos.'],
     image: { src: 'assets/images/arma_inicial.png', alt: 'Revólver Inicial' }
   },
   {
@@ -339,14 +339,14 @@ const levelGuideItems = [
     title: 'Nível 110 — Acessórios e Banquete Real',
     objective: 'Obter novos acessórios e desbloquear conteúdo importante.',
     actions: [
-      { html: 'Comprar: <a href="https://www.divine-pride.net/database/item/28463/" target="_blank" rel="noreferrer noopener">Anel Ágil do Éden I</a> ou <a href="https://www.divine-pride.net/database/item/28464/" target="_blank" rel="noreferrer noopener">Colar Ágil do Éden I</a>' },
-      { html: 'Encantar os Acessórios do Éden com a Joalheira' },
-      { html: 'Quest: <a href="https://browiki.org/wiki/Banquete_Real" target="_blank" rel="noreferrer noopener">Banquete Real</a>' },
-      { html: 'Comprar: <a href="https://browiki.org/wiki/Equipamentos_de_Honra" target="_blank" rel="noreferrer noopener">Equipamentos de Honra</a>' },
-      { html: 'Comprar: <a href="https://www.divine-pride.net/database/item/13197/minimetralhadora-2" target="_blank" rel="noreferrer noopener">Minimetralhadora [2]</a> (No NPC que vende munição)' }
+      { html: 'Comprar: <a href="https://www.divine-pride.net/database/item/28463/" target="_blank" rel="noreferrer noopener">Anel Ágil do Éden I</a> ou <a href="https://www.divine-pride.net/database/item/28464/" target="_blank" rel="noreferrer noopener">Colar Ágil do Éden I</a>.' },
+      { html: 'Encantar os Acessórios do Éden com a Joalheira.' },
+      { html: 'Quest: <a href="https://browiki.org/wiki/Banquete_Real" target="_blank" rel="noreferrer noopener">Banquete Real</a>.' },
+      { html: 'Comprar: <a href="https://browiki.org/wiki/Equipamentos_de_Honra" target="_blank" rel="noreferrer noopener">Equipamentos de Honra</a>.' },
+      { html: 'Comprar: <a href="https://www.divine-pride.net/database/item/13197/minimetralhadora-2" target="_blank" rel="noreferrer noopener">Minimetralhadora [2]</a> (no NPC que vende munição).' }
     ],
     note: 'A quest pode começar no nível 100, mas é recomendado iniciar após obter a habilidade Expurgar.',
-    result: ['Grande aumento de dano graças à nova arma'],
+    result: ['Grande aumento de dano graças à nova arma.'],
     image: { src: 'assets/images/arma_106.png', alt: 'Minimetralhadora' }
   },
   {
@@ -356,7 +356,7 @@ const levelGuideItems = [
     actions: [
       { html: 'Comprar: <a href="https://www.divine-pride.net/database/item/22123/" target="_blank" rel="noreferrer noopener">Coturnos do Éden II</a>' }
     ],
-    result: ['Recuperação de SP que permite usar habilidades continuamente'],
+    result: ['Recuperação de SP que permite usar habilidades continuamente.'],
     image: { src: 'assets/images/coturno_eden_1.png', alt: 'Coturnos do Éden I' }
   },
   {
@@ -375,9 +375,9 @@ const levelGuideItems = [
     title: 'Nível 140 — Nova Arma',
     objective: 'Atualizar o armamento principal.',
     actions: [
-      { html: 'Comprar: <a href="https://www.divine-pride.net/database/item/13198/metralhadora-da-tempestade" target="_blank" rel="noreferrer noopener">Metralhadora da Tempestade</a> (No NPC que vende munição)' }
+      { html: 'Comprar: <a href="https://www.divine-pride.net/database/item/13198/metralhadora-da-tempestade" target="_blank" rel="noreferrer noopener">Metralhadora da Tempestade</a> (no NPC que vende munição).' }
     ],
-    result: ['Novo pico de dano para o final do mid-game'],
+    result: ['Novo pico de dano para o final do mid-game.'],
     image: { src: 'assets/images/arma_140.png', alt: 'Metralhadora da Tempestade' }
   },
   {
@@ -402,12 +402,12 @@ const levelGuideItems = [
   {
     level: 160,
     title: 'Nível 160 — Utilidade e Mobilidade',
-    objective: 'Desbloquear habilidades utilitárias através de acessórios.',
+    objective: 'Desbloquear habilidades utilitárias por meio de acessórios.',
     actions: [
       { html: 'Comprar: <a href="https://www.divine-pride.net/database/item/28472/" target="_blank" rel="noreferrer noopener">Colar Ágil do Éden V</a> (Habilidade: Teleporte)' },
       { html: 'Comprar: <a href="https://www.divine-pride.net/database/item/28471/" target="_blank" rel="noreferrer noopener">Anel Ágil do Éden V</a> (Habilidade: Curar)' }
     ],
-    result: ['Maior mobilidade', 'Autossustentação durante o leveling'],
+    result: ['Maior mobilidade;', 'Autossustentação durante o leveling.'],
     image: { src: 'assets/images/colar_eden_5.png', alt: 'Colar Ágil do Éden V' }
   }
 ];

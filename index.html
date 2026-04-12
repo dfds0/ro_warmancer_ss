@@ -38,8 +38,8 @@
       <div class="container">
         <h2>Pico de Poder</h2>
         <p>Pico de Poder é uma métrica simplificada que representa a eficiência em combate com base no desbloqueio de habilidades, melhorias de equipamentos e pontos de inflexão de dano.</p>
-        <img src="./images/warmancer_justiceiro.png" class="full-width" style="width: 30%;">
-        <img src="./images/warmancer_insurgente.png" class="full-width" style="width: 30%;">
+        <img src="assets/images/warmancer_justiceiro.png" class="full-width" style="width: 31%;">
+        <img src="assets/images/warmancer_insurgente.png" class="full-width" style="width: 30%;">
         <div id="levelDetailsContainer" class="level-grid"></div>
       </div>
     </section>
@@ -54,55 +54,79 @@
             <svg id="weaponChart" viewBox="0 0 760 320" aria-label="Gráfico de armas e habilidades"></svg>
           </div>
           <p class="chart-note">Cada arma aparece em uma faixa colorida correspondente ao nível ideal de uso.</p>
+          <p class="chart-note">Nível: 1-110, uso de Pistola como arma principal</p>
+          <p class="chart-note">Nível: 110-200, uso de Metralhadoras como arma principal</p>
         </div>
         <article>
           <h3>1. Distribuição de atributos</h3>
-          <p>Priorize Força e Vitalidade para garantir dano e sobrevivência. Pontos em Inteligência ajudam a controlar o consumo de SP.</p>
+          <p><span class="span-attributo">FOR:</span>~40 (Carregar munição normal e Projétil Letal)</p>
+          <p><span class="span-attributo">AGI:</span>1 ou ~90</p>
+          <p><span class="span-attributo">VIT:</span>~40</p>
+          <p><span class="span-attributo">INT:</span>100-120</p>
+          <p><span class="span-attributo">DES:</span>100-120</p>
+          <p><span class="span-attributo">SOR:</span>1</p>
+          <br>
+          <p><span class="span-attributo">Opção 1:</span> Focar em DES + INT deste o inicio e usar as habilidades para upar </p>
+          <p><span class="span-attributo">Opção 2:</span> Focar em DES + AGI ate o nivel 100 e depois investir em INT para upar mais rapido</p>
         </article>
         <article>
-          <h3>2. Equipamentos recomendados</h3>
-          <p>Busque armas com alto ataque físico, escudos resistentes e armaduras que reforcem sua defesa contra monstros e PvM.</p>
+          <h3>2. Habilidades</h3>
+          <p>Utilize o site a seguir para acompanhar/planejar a arvore de habilidade: <a href="https://www.divine-pride.net/tools/skilltree/4306" target="_blank">Divine Pride - Skilltree</a></p>
+          <br>
+
+          <h4>Justiceiro</h4>
+          <figure>
+            <img src="assets/images/warmancer_justiceiro_skills.png" class="full-width" style="width: 80%;">
+            <figcaption>A imagem mostra a arvore de habilidade minima para a build de Warmancer</figcaption>
+          </figure>
+
+          <h5>Objetivo e Estrategia</h5>
+          <ul>
+            <li><span>Rajada Certeira</span> vai ser sua principal habilidade de UP ate o nivel 100.</li>
+            <li>Todas as habilidades passivas.</li>
+          </ul>
+
+
+          <h5>Sugestão:</h5>
+          <p class="margin-left">- Ataque Concentrado (1) -> Reação em Cadeia (3) -> Rajada Certeira (10) -> Olhos de Serpente (10) -> Ataque Concentrado (10)</p>
+          <h5>Observação:</h5>
+          <p class="font-italic">Não recomendo "Desperado" como skill de up devido aos gastos de poção.</p>
+          <p class="font-italic">Manter "Rajada Certeira" no nivel 7 e usar "Ataque Total" é uma opção, porém requer comprar Espingarda</p>
+          <br>
+
+          <h4>Insurgente</h4>          
+          <figure>
+            <img src="assets/images/warmancer_insurgente_skills.png" class="full-width" style="width: 95%;">
+            <figcaption>A imagem mostra a arvore de habilidade minima para a build de Warmancer</figcaption>
+          </figure>
+
+          <h5>Objetivo e Estrategia</h5>
+          <p>Maximizar o dano, SP e a sobrevivência durante o up.</p>
+          <p>Utilizar Expurgar para eliminar monstros que entrarem no seu alcance, seja andano ou utilizando "asa de mosca".</p>
+
+          <ul>
+            <li><span>Expurgar</span> vai ser sua principal habilidade de UP ate o nivel 200.</li>
+            <li><span>Calibre Letal</span> e <span>Armadilha Aderente</span> vai ser sua principal habilidade contra Boss e MVP.</li>
+            <li><span>Proteção de Platina</span> vai garantir sobrevida ao upar em matar perigosos e luta contra Boss e MVP.</li>
+          </ul>
+          <br>
+
+          <h5>Sugestão:</h5>
+          <p class="margin-left">- Disparo Labareda (1) -> Expurgar (10) -> Farta Fortuna (1) -> Proteção de Platina (5)</p>
+          <p class="margin-left">- Rajada Estilhaçante (1) -> Tiro Neutralizante (3) -> Calibre Letal (5) -> Ignição (1) -> Armadilha Aderente (5)</p>
+          <br>
+
+          <h5>Observação:</h5>
+          <p class="font-italic">Vai sobrar pontos suficiente para priorizar um segunda/terceira arma+habilidade, revise os requisitos de cada arvore de habilidade</p>
+          <p class="font-italic margin-left">- <span class="span-attributo">Rifle:</span> Espiral Perfurante -> Explosão Antimatéria -> Execução -> Marcar em Brasa</p>
+          <p class="font-italic margin-left">- <span class="span-attributo">Lança Granada:</span> Arremessar Granada -> Lançar Míssil -> Marcar em Brasa</p>
+          <p class="font-italic margin-left">- <span class="span-attributo">[Modo DPS]:</span> Furor -> Reação em Cadeia -> Saque Rápido</p>
+          <p class="font-italic margin-left">- <span class="span-attributo">Pistola:</span> Salto Etéreo -> Descarregar Tambor</p>
+          <br>
+
         </article>
-        <article>
-          <h3>3. Habilidades</h3>
-          <p>Priorize burst, redução de dano e controle de grupo. O Warmancer brilha com builds que combinam dano em área e sustain.</p>
-        </article>
       </div>
     </section>
-
-    <section id="tutorial" class="section section-dark">
-      <div class="container">
-        <h2>Como editar o tutorial</h2>
-        <p>Todo o texto fixo está neste arquivo, então basta editar diretamente as seções que precisam de atualização.</p>
-        <p>Para gráficos e cards de nível, use o <code>assets/js/charts.js</code> e mantenha os dados em português para facilitar leituras futuras.</p>
-        <ul class="compact-list">
-          <li>Atualize as descrições das seções em HTML sempre que precisar adicionar novas dicas.</li>
-          <li>Coloque imagens ilustrativas em <code>images/</code> e use o bloco da galeria para destacá-las.</li>
-          <li>Se for expandir os charts, ajuste os arrays de dados e mantenha o estilo visual do SVG.</li>
-        </ul>
-      </div>
-    </section>
-
-    <section id="galeria" class="section section-light">
-      <div class="container">
-        <h2>Imagens e recursos</h2>
-        <p>Adicione prints, mockups ou diagramas na pasta <strong>/images</strong> e ressalte-os nesta seção.</p>
-        <div class="gallery-placeholder">
-          <div class="gallery-card">
-            <strong>Exemplo:</strong>
-            <p>Coloque suas imagens em <code>/images</code> e atualize o HTML para mostrá-las com contexto.</p>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section id="contato" class="section section-dark">
-      <div class="container">
-        <h2>Próximos passos</h2>
-        <p>Adicione notas no <code>README.md</code>, crie páginas de apoio se precisar de mais detalhes e centralize os recursos visuais em <code>/images</code>.</p>
-      </div>
-    </section>
-
 
   </main>
 

@@ -15,11 +15,11 @@ const powerDataPoints = [
 ];
 
 const weaponDataItems = [
-  { name: 'Pistola', ranges: [{ from: 10, to: 110 }, { from: 150, to: 200 }], color: '#fb7185' },
-  { name: 'Gatling', ranges: [{ from: 110, to: 200 }], color: '#8b5cf6' },
-  { name: 'Rifle', ranges: [{ from: 10, to: 30 }, { from: 150, to: 200 }], color: '#38bdf8' },
-  { name: 'Escopeta', ranges: [{ from: 150, to: 200 }], color: '#22c55e' },
-  { name: 'Granada', ranges: [{ from: 150, to: 200 }], color: '#e879f9' }
+  { name: 'Pistola', ranges: [{ from: 10, to: 110 }], color: '#fb7185' },
+  { name: 'Metralhadora', ranges: [{ from: 110, to: 200 }], color: '#8b5cf6' },
+  { name: 'Rifle', ranges: [{ from: 150, to: 200 }], color: '#38bdf8' },
+  { name: 'Escopeta', ranges: [{ from: 130, to: 200 }], color: '#22c55e' },
+  { name: 'L. Granada', ranges: [{ from: 150, to: 200 }], color: '#e879f9' }
 ];
 
 const TEXT = {

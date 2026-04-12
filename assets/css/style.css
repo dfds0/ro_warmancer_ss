@@ -203,6 +203,19 @@ nav a:hover {
   overflow: hidden;
 }
 
+.level-image {
+  margin: 1.25rem 0 0;
+  text-align: center;
+}
+
+.level-image img {
+  max-width: 120px;
+  width: 100%;
+  height: auto;
+  border-radius: 0.75rem;
+  border: 1px solid rgba(255,255,255,.2);
+}
+
 .level-card::before {
   content: '⚔';
   position: absolute;

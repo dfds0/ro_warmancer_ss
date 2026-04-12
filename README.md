@@ -14,8 +14,9 @@ Este repositório serve como uma página estática para GitHub Pages dedicada ao
 
 1. Abra `index.html` e atualize os títulos, parágrafos e artigos nas seções `sobre`, `pico-de-poder`, `estrategia`, `tutorial`, `galeria` e `contato`.
 2. Se quiser alterar os gráficos ou os cards dos níveis, edite os arrays no `assets/js/charts.js`. As mudanças são aplicadas automaticamente no carregamento da página.
-3. Acrescente imagens em `images/` e, se necessário, coloque novos blocos HTML na seção de galeria para exibí-las.
-4. Commit e publique: o workflow em `.github/workflows/pages.yml` dispara a cada push no `main`.
+3. Para anexar imagens ilustrativas aos cards, adicione a propriedade `image` ao objeto do nível em `assets/js/charts.js` (por exemplo `{ image: { src: 'assets/images/arma_eden_1.png', alt: 'Revólver do Éden I' } }`). O script posiciona a imagem diretamente abaixo do título do card e redimensiona para caber.
+4. Acrescente imagens em `images/` e, se necessário, coloque novos blocos HTML na seção de galeria para exibí-las.
+5. Commit e publique: o workflow em `.github/workflows/pages.yml` dispara a cada push no `main`.
 
 ## Próximos passos sugeridos
 

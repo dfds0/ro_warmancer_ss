@@ -1,17 +1,17 @@
 const powerDataPoints = [
-  { level: 10, power: 100 },
-  { level: 30, power: 110 },
-  { level: 40, power: 113.3 },
-  { level: 50, power: 124.63 },
-  { level: 70, power: 137.09 },
-  { level: 100, power: 164.51 },
-  { level: 110, power: 238.44, highlight: true },
-  { level: 115, power: 238.44 },
-  { level: 125, power: 250.37, highlight: true },
-  { level: 140, power: 270.37, highlight: true },
-  { level: 145, power: 270.37 },
-  { level: 150, power: 300.11, highlight: true },
-  { level: 160, power: 320 }
+  { level: 10, power: 50 },
+  { level: 30, power: 100 },
+  { level: 40, power: 100 },
+  { level: 50, power: 180 },
+  { level: 70, power: 250 },
+  { level: 100, power: 350 },
+  { level: 110, power: 530, highlight: true },
+  { level: 115, power: 535 },
+  { level: 125, power: 585, highlight: true },
+  { level: 140, power: 810, highlight: true },
+  { level: 145, power: 815 },
+  { level: 150, power: 900, highlight: true },
+  { level: 160, power: 910 }
 ];
 
 const weaponDataItems = [
@@ -35,7 +35,7 @@ const height = 320;
 const powerPadding = { top: 18, right: 18, bottom: 32, left: 34 };
 const weaponPadding = { top: 18, right: 18, bottom: 32, left: 100 };
 const xRange = [0, 200];
-const yRange = [0, 320];
+const yRange = [0, 1000];
 
 const createElement = (tag, attrs) => {
   const el = document.createElementNS('http://www.w3.org/2000/svg', tag);
@@ -275,7 +275,8 @@ const levelGuideItems = [
       { html: 'Completar a quest de mudança de classe para <a href="https://browiki.org/wiki/Mudan%C3%A7a_de_Classe:_Justiceiros" target="_blank" rel="noreferrer noopener">Justiceiro</a>' },
       { html: 'Entrar no clã Balestra Esmeralda através dos <a href="https://browiki.org/wiki/Cl%C3%A3s_Reais" target="_blank" rel="noreferrer noopener">Clãs Reais</a>' }
     ],
-    result: ['Acesso completo às habilidades de Justiceiro', 'Bônus passivos do clã para auxiliar no leveling inicial']
+    result: ['Acesso completo às habilidades de Justiceiro', 'Bônus passivos do clã para auxiliar no leveling inicial'],
+    image: { src: 'assets/images/rifle_iniciante.png', alt: 'Rifle de Iniciante' }
   },
   {
     level: 30,
@@ -285,7 +286,8 @@ const levelGuideItems = [
       { html: 'Completar a quest de <a href="https://browiki.org/wiki/Equipamentos_do_%C3%89den" target="_blank" rel="noreferrer noopener">Equipamentos do Éden I</a> no Grupo Éden<br><small class="action-subnote">Nota: Realizar as missões em Payon Cave</small>' },
       { html: 'Você deve receber o <a href="https://www.divine-pride.net/database/item/13112/" target="_blank" rel="noreferrer noopener">Revólver do Éden I</a>' }
     ],
-    result: ['Primeiro aumento consistente de dano e sobrevivência']
+    result: ['Primeiro aumento consistente de dano e sobrevivência'],
+    image: { src: 'assets/images/arma_eden_1.png', alt: 'Revólver do Éden I' }
   },
   {
     level: 40,
@@ -302,7 +304,8 @@ const levelGuideItems = [
       { html: 'Completar a quest de Equipamentos do Éden II<br><small class="action-subnote">Nota: Realizar as missões em Orc Dungeon</small>' },
       { html: 'Você deve receber o <a href="https://www.divine-pride.net/database/item/13113/" target="_blank" rel="noreferrer noopener">Revólver do Éden II</a>' }
     ],
-    result: ['Aumento significativo de ataque']
+    result: ['Aumento significativo de ataque'],
+    image: { src: 'assets/images/arma_eden_2.png', alt: 'Revólver do Éden II' }
   },
   {
     level: 70,
@@ -315,7 +318,8 @@ const levelGuideItems = [
       { html: 'Encantar a Arma do Éden com o Especialista BK' }
     ],
     note: 'A missão de nível 90 do NPC Ur geralmente não compensa o esforço para esta build.',
-    result: ['Novo pico de dano para leveling intermediário']
+    result: ['Novo pico de dano para leveling intermediário'],
+    image: { src: 'assets/images/arma_eden_3.png', alt: 'Revólver do Éden III' }
   },
   {
     level: 100,
@@ -327,7 +331,8 @@ const levelGuideItems = [
       { html: 'Obter <a href="https://browiki.org/wiki/Equipamento_Inicial" target="_blank" rel="noreferrer noopener">Equipamentos Iniciais</a>' },
       { html: 'Entrar no clã Cajado Celeste através dos <a href="https://browiki.org/wiki/Cl%C3%A3s_Reais" target="_blank" rel="noreferrer noopener">Clãs Reais</a>' }
     ],
-    result: ['Acesso às habilidades de Insurgente', 'Novo ciclo de progressão de equipamentos']
+    result: ['Acesso às habilidades de Insurgente', 'Novo ciclo de progressão de equipamentos'],
+    image: { src: 'assets/images/arma_inicial.png', alt: 'Revólver Inicial' }
   },
   {
     level: 110,
@@ -341,7 +346,8 @@ const levelGuideItems = [
       { html: 'Comprar: <a href="https://www.divine-pride.net/database/item/13197/minimetralhadora-2" target="_blank" rel="noreferrer noopener">Minimetralhadora [2]</a> (No NPC que vende munição)' }
     ],
     note: 'A quest pode começar no nível 100, mas é recomendado iniciar após obter a habilidade Expurgar.',
-    result: ['Grande aumento de dano graças à nova arma']
+    result: ['Grande aumento de dano graças à nova arma'],
+    image: { src: 'assets/images/arma_106.png', alt: 'Minimetralhadora' }
   },
   {
     level: 115,
@@ -350,7 +356,8 @@ const levelGuideItems = [
     actions: [
       { html: 'Comprar: <a href="https://www.divine-pride.net/database/item/22123/" target="_blank" rel="noreferrer noopener">Coturnos do Éden II</a>' }
     ],
-    result: ['Recuperação de SP que permite usar habilidades continuamente']
+    result: ['Recuperação de SP que permite usar habilidades continuamente'],
+    image: { src: 'assets/images/coturno_eden_1.png', alt: 'Coturnos do Éden I' }
   },
   {
     level: 125,
@@ -360,7 +367,8 @@ const levelGuideItems = [
       { html: 'Quest: <a href="https://browiki.org/wiki/Terra_Gloria" target="_blank" rel="noreferrer noopener">Terra Gloria</a>' },
       { html: 'Comprar: <a href="https://browiki.org/wiki/Equipamentos_de_Honra" target="_blank" rel="noreferrer noopener">Equipamentos Ilustres</a>' }
     ],
-    note: 'Apesar da quest iniciar no nível 100, aguardar até 125 facilita o uso imediato dos equipamentos.'
+    note: 'Apesar da quest iniciar no nível 100, aguardar até 125 facilita o uso imediato dos equipamentos.',
+    image: { src: 'assets/images/traje_honra.png', alt: 'Ilustre Traje Expurgante' }
   },
   {
     level: 140,
@@ -369,7 +377,8 @@ const levelGuideItems = [
     actions: [
       { html: 'Comprar: <a href="https://www.divine-pride.net/database/item/13198/metralhadora-da-tempestade" target="_blank" rel="noreferrer noopener">Metralhadora da Tempestade</a> (No NPC que vende munição)' }
     ],
-    result: ['Novo pico de dano para o final do mid-game']
+    result: ['Novo pico de dano para o final do mid-game'],
+    image: { src: 'assets/images/arma_140.png', alt: 'Metralhadora da Tempestade' }
   },
   {
     level: 145,
@@ -377,7 +386,8 @@ const levelGuideItems = [
     objective: 'Melhorar ainda mais a recuperação de SP.',
     actions: [
       { html: 'Comprar: <a href="https://www.divine-pride.net/database/item/22125/" target="_blank" rel="noreferrer noopener">Coturnos do Éden IV</a>' }
-    ]
+    ],
+    image: { src: 'assets/images/coturno_eden_1.png', alt: 'Coturnos do Éden IV' }
   },
   {
     level: 150,
@@ -385,18 +395,20 @@ const levelGuideItems = [
     objective: 'Avançar para equipamentos mais fortes.',
     actions: [
       { html: 'Quest: <a href="https://browiki.org/wiki/Ilusi%C3%B3n" target="_blank" rel="noreferrer noopener">Ilusión</a>' },
-      { html: 'Comprar: <a href="https://www.divine-pride.net/wiki/Equipamentos_de_Honra" target="_blank" rel="noreferrer noopener">Equipamentos Grácil</a>' }
-    ]
+      { html: 'Comprar: <a href="https://browiki.org/wiki/Equipamentos_de_Honra" target="_blank" rel="noreferrer noopener">Equipamentos Grácil</a>' }
+    ],
+    image: { src: 'assets/images/traje_honra.png', alt: 'Ilustre Traje Expurgante' }
   },
   {
     level: 160,
     title: 'Nível 160 — Utilidade e Mobilidade',
     objective: 'Desbloquear habilidades utilitárias através de acessórios.',
     actions: [
-      { html: 'Comprar: <a href="https://www.divine-pride.net/database/item/28471/" target="_blank" rel="noreferrer noopener">Colar Ágil do Éden V</a> (Habilidade: Teleporte)' },
-      { html: 'Comprar: <a href="https://www.divine-pride.net/database/item/28472/" target="_blank" rel="noreferrer noopener">Anel Ágil do Éden V</a> (Habilidade: Curar)' }
+      { html: 'Comprar: <a href="https://www.divine-pride.net/database/item/28472/" target="_blank" rel="noreferrer noopener">Colar Ágil do Éden V</a> (Habilidade: Teleporte)' },
+      { html: 'Comprar: <a href="https://www.divine-pride.net/database/item/28471/" target="_blank" rel="noreferrer noopener">Anel Ágil do Éden V</a> (Habilidade: Curar)' }
     ],
-    result: ['Maior mobilidade', 'Autossustentação durante o leveling']
+    result: ['Maior mobilidade', 'Autossustentação durante o leveling'],
+    image: { src: 'assets/images/colar_eden_5.png', alt: 'Colar Ágil do Éden V' }
   }
 ];
 
@@ -433,8 +445,12 @@ const renderLevelDetails = () => {
     const card = document.createElement('section');
     card.className = 'level-card';
     card.id = `level-${item.level}`;
+    const imageMarkup = item.image
+      ? `<div class="level-image"><img src="${item.image.src}" alt="${item.image.alt || item.title}" loading="lazy"></div>`
+      : '';
     card.innerHTML = `
       <h3><a href="#level-${item.level}">${item.title}</a></h3>
+      ${imageMarkup}
       <p><strong>${TEXT.objectiveLabel}:</strong></p>
       <ul class="level-bullets"><li>${item.objective}</li></ul>
       <p><strong>${TEXT.actionsLabel}:</strong></p>

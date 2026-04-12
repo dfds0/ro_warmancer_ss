@@ -1,26 +1,24 @@
 # RO Warmancer Page
 
-Este repositório foi configurado como uma página estática para GitHub Pages. O objetivo é servir como tutorial e referência para a classe Warmancer em Ragnarok Online.
+Este repositório serve como uma página estática para GitHub Pages dedicada ao tutorial da build Warmancer em Ragnarok Online. Todo o conteúdo textual está em português para facilitar edições manuais, e os gráficos são renderizados por JavaScript no próprio navegador.
 
 ## Estrutura do projeto
 
-- `index.html` — página inicial do tutorial
-- `assets/css/style.css` — estilos do site
-- `images/` — pasta para adicionar imagens relacionadas à build e ao tutorial
-- `.github/workflows/pages.yml` — workflow para publicar o site automaticamente no GitHub Pages
+- `index.html` — único HTML da página, com seções editáveis em português.
+- `assets/css/style.css` — estilos globais com foco em leitura noturna.
+- `assets/js/charts.js` — dados e renderização dos gráficos de nível, armas e cards.
+- `images/` — local para colocar prints, mockups ou recursos visuais usados no tutorial.
+- `.github/workflows/pages.yml` — workflow que publica a branch `main` no GitHub Pages.
 
-## Como usar
+## Como editar o tutorial
 
-1. Adicione imagens em `images/`.
-2. Abra `index.html` no navegador ou use o GitHub Pages para publicar.
-3. Edite o conteúdo do tutorial diretamente em `index.html` ou crie páginas HTML adicionais.
+1. Abra `index.html` e atualize os títulos, parágrafos e artigos nas seções `sobre`, `pico-de-poder`, `estrategia`, `tutorial`, `galeria` e `contato`.
+2. Se quiser alterar os gráficos ou os cards dos níveis, edite os arrays no `assets/js/charts.js`. As mudanças são aplicadas automaticamente no carregamento da página.
+3. Acrescente imagens em `images/` e, se necessário, coloque novos blocos HTML na seção de galeria para exibí-las.
+4. Commit e publique: o workflow em `.github/workflows/pages.yml` dispara a cada push no `main`.
 
-## Publicação no GitHub Pages
+## Próximos passos sugeridos
 
-Se você configurar o GitHub Pages para o branch `main`, a página será publicada automaticamente pela workflow em `.github/workflows/pages.yml`.
-
-## Próximos passos
-
-- Adicionar mais seções de builds e equipamentos
-- Criar páginas de tutorial dedicadas para cartas, stats e estratégias
-- Inserir imagens de exemplo em `images/`
+- Adicionar dicas adicionais por nível direto nos cards do `levelDetailsContainer`.
+- Documentar builds alternativas criando novas seções ou páginas auxiliares.
+- Revisar e expandir a galeria com capturas de tela atualizadas.

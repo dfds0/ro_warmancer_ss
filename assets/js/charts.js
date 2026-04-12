@@ -15,12 +15,20 @@ const powerDataPoints = [
 ];
 
 const weaponDataItems = [
-  { nameKey: 'weaponItemPistola', ranges: [{ from: 10, to: 110 }, { from: 150, to: 200 }], color: '#fb7185' },
-  { nameKey: 'weaponItemGatling', ranges: [{ from: 110, to: 200 }], color: '#8b5cf6' },
-  { nameKey: 'weaponItemRifle', ranges: [{ from: 10, to: 30 }, { from: 150, to: 200 }], color: '#38bdf8' },
-  { nameKey: 'weaponItemEscopeta', ranges: [{ from: 150, to: 200 }], color: '#22c55e' },
-  { nameKey: 'weaponItemGranada', ranges: [{ from: 150, to: 200 }], color: '#e879f9' }
+  { name: 'Pistola', ranges: [{ from: 10, to: 110 }, { from: 150, to: 200 }], color: '#fb7185' },
+  { name: 'Gatling', ranges: [{ from: 110, to: 200 }], color: '#8b5cf6' },
+  { name: 'Rifle', ranges: [{ from: 10, to: 30 }, { from: 150, to: 200 }], color: '#38bdf8' },
+  { name: 'Escopeta', ranges: [{ from: 150, to: 200 }], color: '#22c55e' },
+  { name: 'Granada', ranges: [{ from: 150, to: 200 }], color: '#e879f9' }
 ];
+
+const TEXT = {
+  levelPointTitle: 'Nível {level}',
+  objectiveLabel: 'Objetivo',
+  actionsLabel: 'Ações',
+  noteLabel: 'Nota',
+  resultLabel: 'Resultado'
+};
 
 const width = 760;
 const height = 320;
@@ -55,8 +63,8 @@ const createPowerChartCard = (cardId, svgId, title, note, ariaLabel) => {
   return card;
 };
 
-const xScaleForRange = (value, xRange, padding) =>
-  padding.left + ((value - xRange[0]) / (xRange[1] - xRange[0])) * (width - padding.left - padding.right);
+const xScaleForRange = (value, range, padding) =>
+  padding.left + ((value - range[0]) / (range[1] - range[0])) * (width - padding.left - padding.right);
 
 const yScale = value =>
   height - powerPadding.bottom - ((value - yRange[0]) / (yRange[1] - yRange[0])) * (height - powerPadding.top - powerPadding.bottom);
@@ -99,22 +107,19 @@ const renderAxis = (svg, range, padding, step = 20) => {
   }
 };
 
-const renderPowerCurveSegment = (svgId, xRangeSegment) => {
+const renderPowerCurveSegment = (svgId, range) => {
   const svg = document.getElementById(svgId);
   if (!svg) return;
   clearSvg(svg);
 
-  renderAxis(svg, xRangeSegment, powerPadding);
+  renderAxis(svg, range, powerPadding);
 
-  const filteredPoints = powerDataPoints.filter(
-    point => point.level >= xRangeSegment[0] && point.level <= xRangeSegment[1]
-  );
-
+  const filteredPoints = powerDataPoints.filter(point => point.level >= range[0] && point.level <= range[1]);
   if (filteredPoints.length === 0) return;
 
   const path = createElement('path', {
     d: filteredPoints
-      .map((point, index) => `${index === 0 ? 'M' : 'L'} ${xScaleForRange(point.level, xRangeSegment, powerPadding)} ${yScale(point.power)}`)
+      .map((point, index) => `${index === 0 ? 'M' : 'L'} ${xScaleForRange(point.level, range, powerPadding)} ${yScale(point.power)}`)
       .join(' '),
     fill: 'none',
     stroke: '#fbbf24',
@@ -125,7 +130,7 @@ const renderPowerCurveSegment = (svgId, xRangeSegment) => {
   svg.appendChild(path);
 
   filteredPoints.forEach(point => {
-    const x = xScaleForRange(point.level, xRangeSegment, powerPadding);
+    const x = xScaleForRange(point.level, range, powerPadding);
     const y = yScale(point.power);
     const hasHighlight = !!point.highlight;
     const isHighlight = hasHighlight && svgId !== 'powerChartHigh';
@@ -155,7 +160,7 @@ const renderPowerCurveSegment = (svgId, xRangeSegment) => {
     circle.setAttribute('data-level', point.level);
 
     const title = createElement('title', {});
-    title.textContent = t(currentLang, 'levelPointTitle').replace('{level}', point.level);
+    title.textContent = TEXT.levelPointTitle.replace('{level}', point.level);
     circle.appendChild(title);
 
     circle.addEventListener('click', () => {
@@ -237,7 +242,7 @@ const renderWeaponAvailabilityChart = () => {
       'font-size': '12',
       'text-anchor': 'end'
     });
-    label.textContent = t(currentLang, item.nameKey);
+    label.textContent = item.name;
     svg.appendChild(label);
 
     item.ranges.forEach(range => {
@@ -254,109 +259,10 @@ const renderWeaponAvailabilityChart = () => {
         opacity: 0.9
       });
       const title = createElement('title', {});
-      title.textContent = `${t(currentLang, item.nameKey)}: ${range.from} - ${range.to}`;
+      title.textContent = `${item.name}: ${range.from} - ${range.to}`;
       rect.appendChild(title);
       svg.appendChild(rect);
     });
-  });
-};
-
-const levelingSegments = [
-  { from: 0, to: 10, label: 'Quest: Primeiros Passos', color: '#fb7185' },
-  { from: 10, to: 15, label: 'Quest: Treinamento do Justiceiro', color: '#fbbf24' },
-  { from: 15, to: 20, label: 'Floresta de Payon 8 (pay_fild08 20, 74)', color: '#38bdf8' },
-  { from: 20, to: 150, label: 'Quest: Grupo do Éden', color: '#8b5cf6' },
-  { from: 150, to: 175, label: 'Liga dos Desbravadores (Instâncias)', color: '#22c55e' },
-  { from: 175, to: 200, label: 'Quest: Além do Limite + Liga dos Desbravadores', color: '#e879f9' }
-];
-
-const xScaleLeveling = value =>
-  powerPadding.left + ((value - 0) / 200) * (width - powerPadding.left - powerPadding.right);
-
-const renderLevelingChart = () => {
-  const svg = document.getElementById('levelingChart');
-  if (!svg) return;
-  clearSvg(svg);
-
-  const chartHeight = height - powerPadding.top - powerPadding.bottom;
-  const rowHeight = chartHeight / levelingSegments.length;
-
-  const axis = createElement('line', {
-    x1: powerPadding.left,
-    y1: height - powerPadding.bottom,
-    x2: width - powerPadding.right,
-    y2: height - powerPadding.bottom,
-    stroke: '#64748b',
-    'stroke-width': 1.5
-  });
-  svg.appendChild(axis);
-
-  for (let i = 0; i <= 200; i += 20) {
-    const x = xScaleLeveling(i);
-    const tick = createElement('line', {
-      x1: x,
-      y1: height - powerPadding.bottom,
-      x2: x,
-      y2: height - powerPadding.bottom + 8,
-      stroke: '#475569',
-      'stroke-width': 1
-    });
-    svg.appendChild(tick);
-
-    const label = createElement('text', {
-      x,
-      y: height - powerPadding.bottom + 24,
-      fill: '#cbd5e1',
-      'font-size': '11',
-      'text-anchor': 'middle'
-    });
-    label.textContent = i;
-    svg.appendChild(label);
-  }
-
-  levelingSegments.forEach((segment, index) => {
-    const y = powerPadding.top + rowHeight * index + rowHeight / 2;
-    const x1 = xScaleLeveling(segment.from);
-    const x2 = xScaleLeveling(segment.to);
-
-    const rect = createElement('rect', {
-      x: x1,
-      y: y - rowHeight * 0.3,
-      width: Math.max(2, x2 - x1),
-      height: rowHeight * 0.6,
-      fill: segment.color,
-      rx: 8,
-      ry: 8,
-      opacity: 0.9
-    });
-    svg.appendChild(rect);
-
-    const label = createElement('text', {
-      x: x1 + 8,
-      y: y + 4,
-      fill: '#111827',
-      'font-size': '12',
-      'font-weight': '700',
-      'text-anchor': 'start'
-    });
-    label.textContent = `${segment.from}–${segment.to}`;
-    svg.appendChild(label);
-  });
-};
-
-const renderLevelingCards = () => {
-  const container = document.getElementById('levelingDetailCards');
-  if (!container) return;
-
-  container.innerHTML = '';
-  levelingSegments.forEach(segment => {
-    const card = document.createElement('section');
-    card.className = 'level-card';
-    card.innerHTML = `
-      <h3>${segment.label}</h3>
-      <p><strong>Níveis:</strong> ${segment.from} a ${segment.to}</p>
-    `;
-    container.appendChild(card);
   });
 };
 
@@ -366,8 +272,8 @@ const levelGuideItems = [
     title: 'Nível 10 — Justiceiro',
     objective: 'Desbloquear a classe principal e acessar bônus iniciais de progressão.',
     actions: [
-      { html: 'Completar a quest de mudança de classe para <a href="https://browiki.org/wiki/Mudança_de_Classe:_Justiceiros" target="_blank" rel="noreferrer noopener">Justiceiro</a>' },
-      { html: 'Entrar no clã Balestra Esmeralda através dos <a href="https://browiki.org/wiki/Clãs_Reais" target="_blank" rel="noreferrer noopener">Clãs Reais</a>' }
+      { html: 'Completar a quest de mudança de classe para <a href="https://browiki.org/wiki/Mudan%C3%A7a_de_Classe:_Justiceiros" target="_blank" rel="noreferrer noopener">Justiceiro</a>' },
+      { html: 'Entrar no clã Balestra Esmeralda através dos <a href="https://browiki.org/wiki/Cl%C3%A3s_Reais" target="_blank" rel="noreferrer noopener">Clãs Reais</a>' }
     ],
     result: ['Acesso completo às habilidades de Justiceiro', 'Bônus passivos do clã para auxiliar no leveling inicial']
   },
@@ -376,7 +282,7 @@ const levelGuideItems = [
     title: 'Nível 30 — Equipamento Éden I',
     objective: 'Obter o primeiro conjunto de equipamentos focado em leveling.',
     actions: [
-      { html: 'Completar a quest de <a href="https://browiki.org/wiki/Equipamentos_do_Éden" target="_blank" rel="noreferrer noopener">Equipamentos do Éden I</a> no Grupo Éden<br><small class="action-subnote">Nota: Realizar as missões em Payon Cave</small>' },
+      { html: 'Completar a quest de <a href="https://browiki.org/wiki/Equipamentos_do_%C3%89den" target="_blank" rel="noreferrer noopener">Equipamentos do Éden I</a> no Grupo Éden<br><small class="action-subnote">Nota: Realizar as missões em Payon Cave</small>' },
       { html: 'Você deve receber o <a href="https://www.divine-pride.net/database/item/13112/" target="_blank" rel="noreferrer noopener">Revólver do Éden I</a>' }
     ],
     result: ['Primeiro aumento consistente de dano e sobrevivência']
@@ -416,7 +322,7 @@ const levelGuideItems = [
     title: 'Nível 100 — Insurgente',
     objective: 'Desbloquear a classe avançada e iniciar progressão de equipamentos mais fortes.',
     actions: [
-      { html: 'Completar a quest de mudança de classe para <a href="https://browiki.org/wiki/Mudança_de_Classe:_Insurgentes" target="_blank" rel="noreferrer noopener">Insurgente</a>' },
+      { html: 'Completar a quest de mudança de classe para <a href="https://browiki.org/wiki/Mudan%C3%A7a_de_Classe:_Insurgentes" target="_blank" rel="noreferrer noopener">Insurgente</a>' },
       { html: 'Farmar Moedas do Éden no Grupo Éden' },
       { html: 'Obter <a href="https://browiki.org/wiki/Equipamento_Inicial" target="_blank" rel="noreferrer noopener">Equipamentos Iniciais</a>' },
       { html: 'Entrar no clã Cajado Celeste através dos <a href="https://browiki.org/wiki/Cl%C3%A3s_Reais" target="_blank" rel="noreferrer noopener">Clãs Reais</a>' }
@@ -478,7 +384,7 @@ const levelGuideItems = [
     title: 'Nível 150 — Equipamentos Grácil',
     objective: 'Avançar para equipamentos mais fortes.',
     actions: [
-      { html: 'Quest: <a href="https://browiki.org/wiki/Ilusión" target="_blank" rel="noreferrer noopener">Ilusión</a>' },
+      { html: 'Quest: <a href="https://browiki.org/wiki/Ilusi%C3%B3n" target="_blank" rel="noreferrer noopener">Ilusión</a>' },
       { html: 'Comprar: <a href="https://www.divine-pride.net/wiki/Equipamentos_de_Honra" target="_blank" rel="noreferrer noopener">Equipamentos Grácil</a>' }
     ]
   },
@@ -494,18 +400,12 @@ const levelGuideItems = [
   }
 ];
 
-const renderLevelDetails = lang => {
+const renderLevelDetails = () => {
   const detailsContainer = document.getElementById('levelDetailsContainer');
   if (!detailsContainer) return;
 
-  const guideItems = translations[lang]?.levelGuideItems || levelGuideItems;
-  const objectiveLabel = t(lang, 'levelGuideObjectiveLabel');
-  const actionsLabel = t(lang, 'levelGuideActionsLabel');
-  const noteLabel = t(lang, 'levelGuideNoteLabel');
-  const resultLabel = t(lang, 'levelGuideResultLabel');
-
   detailsContainer.innerHTML = '';
-  guideItems.forEach(item => {
+  levelGuideItems.forEach(item => {
     if (item.level === 10) {
       detailsContainer.appendChild(
         createPowerChartCard(
@@ -535,9 +435,9 @@ const renderLevelDetails = lang => {
     card.id = `level-${item.level}`;
     card.innerHTML = `
       <h3><a href="#level-${item.level}">${item.title}</a></h3>
-      <p><strong>${objectiveLabel}:</strong></p>
+      <p><strong>${TEXT.objectiveLabel}:</strong></p>
       <ul class="level-bullets"><li>${item.objective}</li></ul>
-      <p><strong>${actionsLabel}:</strong></p>
+      <p><strong>${TEXT.actionsLabel}:</strong></p>
       <ul class="level-bullets">
         ${item.actions
           .map(action =>
@@ -549,23 +449,12 @@ const renderLevelDetails = lang => {
           )
           .join('')}
       </ul>
-      ${item.note ? `<p><strong>${noteLabel}:</strong></p><ul class="level-bullets"><li>${item.note}</li></ul>` : ''}
-      ${item.result ? `<p><strong>${resultLabel}:</strong></p><ul class="level-bullets">${item.result.map(result => `<li>${result}</li>`).join('')}</ul>` : ''}
+      ${item.note ? `<p><strong>${TEXT.noteLabel}:</strong></p><ul class="level-bullets"><li>${item.note}</li></ul>` : ''}
+      ${item.result ? `<p><strong>${TEXT.resultLabel}:</strong></p><ul class="level-bullets">${item.result.map(result => `<li>${result}</li>`).join('')}</ul>` : ''}
     `;
     detailsContainer.appendChild(card);
   });
 };
-
-const updateChartTitles = lang => {
-  document.querySelectorAll('#powerChartLow circle[data-level], #powerChartHigh circle[data-level]').forEach(circle => {
-    const titleEl = circle.querySelector('title');
-    if (!titleEl) return;
-    const level = circle.getAttribute('data-level');
-    titleEl.textContent = t(lang, 'levelPointTitle').replace('{level}', level);
-  });
-};
-
-let currentLang = getPreferredLanguage();
 
 const renderFooterVersion = () => {
   const footer = document.querySelector('footer');
@@ -595,36 +484,7 @@ const renderFooterVersion = () => {
   }
 };
 
-renderLevelDetails(currentLang);
+renderLevelDetails();
 renderPowerCurveChart();
 renderWeaponAvailabilityChart();
-translatePage(currentLang);
 renderFooterVersion();
-updateChartTitles(currentLang);
-
-const setActiveLanguageButton = lang => {
-  document.querySelectorAll('.lang-btn').forEach(button => {
-    button.classList.toggle('active', button.dataset.lang === lang);
-  });
-};
-
-const languageButtons = document.querySelectorAll('.lang-btn');
-if (languageButtons.length) {
-  languageButtons.forEach(button => {
-    button.addEventListener('click', () => {
-      const value = button.dataset.lang;
-      if (translations[value]) {
-        currentLang = value;
-        localStorage.setItem('siteLanguage', value);
-        translatePage(value);
-        renderLevelDetails(value);
-        renderPowerCurveChart();
-        renderWeaponAvailabilityChart();
-        updateChartTitles(value);
-        setActiveLanguageButton(value);
-      }
-    });
-  });
-}
-
-setActiveLanguageButton(currentLang);

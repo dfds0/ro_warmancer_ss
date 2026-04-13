@@ -217,7 +217,7 @@ nav a:hover {
 }
 
 .level-card::before {
-  content: '⚔';
+  content: '🎖️';
   position: absolute;
   top: 1rem;
   right: 1rem;

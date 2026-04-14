@@ -353,3 +353,12 @@ th {
 .best-option {
     color: yellow;
 }
+
+.skill {
+    font-weight: bold;
+  margin-right: 1%;
+}
+
+.expurgar {
+    background-image: url("assets/images/expurgar.png");
+}

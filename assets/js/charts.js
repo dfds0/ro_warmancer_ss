@@ -23,11 +23,7 @@ const weaponDataItems = [
 ];
 
 const TEXT = {
-  levelPointTitle: 'Nível {level}',
-  objectiveLabel: 'Objetivo',
-  actionsLabel: 'Ações',
-  noteLabel: 'Nota',
-  resultLabel: 'Resultado'
+  levelPointTitle: 'Nível {level}'
 };
 
 const width = 760;
@@ -266,209 +262,49 @@ const renderWeaponAvailabilityChart = () => {
   });
 };
 
-const levelGuideItems = [
+const chartInsertionPoints = [
   {
-    level: 10,
-    title: 'Nível 10 — Justiceiro',
-    objective: 'Desbloquear a classe principal e acessar bônus iniciais de progressão.',
-    actions: [
-      { html: 'Completar a quest de mudança de classe para <a href="https://browiki.org/wiki/Mudan%C3%A7a_de_Classe:_Justiceiros" target="_blank" rel="noreferrer noopener">Justiceiro</a>.' },
-      { html: 'Entrar no clã Balestra Esmeralda por meio dos <a href="https://browiki.org/wiki/Cl%C3%A3s_Reais" target="_blank" rel="noreferrer noopener">Clãs Reais</a>.' }
-    ],
-    result: ['Acesso completo às habilidades de Justiceiro.', 'Bônus passivos do clã para auxiliar no leveling inicial.'],
-    image: { src: 'assets/images/rifle_iniciante.png', alt: 'Rifle de Iniciante' }
+    levelId: 'level-10',
+    cardId: 'powerChartCard0to100',
+    svgId: 'powerChartLow',
+    title: 'Curva de poder por nível de 0 a 100',
+    note: 'Eixo X: nível 0 a 100',
+    ariaLabel: 'Gráfico de poder por nível de 0 a 100'
   },
   {
-    level: 30,
-    title: 'Nível 30 — Equipamento Éden I',
-    objective: 'Obter o primeiro conjunto de equipamentos focado em leveling.',
-    actions: [
-      { html: 'Completar a quest de <a href="https://browiki.org/wiki/Equipamentos_do_%C3%89den" target="_blank" rel="noreferrer noopener">Equipamentos do Éden I</a> no Grupo Éden.<br><small class="action-subnote">Nota: realizar as missões em Payon Cave</small>.' },
-      { html: 'Você deve receber o <a href="https://www.divine-pride.net/database/item/13112/" target="_blank" rel="noreferrer noopener">Revólver do Éden I</a>.' }
-    ],
-    result: ['Primeiro aumento consistente de dano e sobrevivência.'],
-    image: { src: 'assets/images/arma_eden_1.png', alt: 'Revólver do Éden I' }
-  },
-  {
-    level: 40,
-    title: 'Nível 40 — Encantamento Inicial',
-    objective: 'Melhorar o equipamento recebido anteriormente.',
-    actions: [{ html: 'Encantar o Chapéu do Éden I com o Administrador Mihael.' }],
-    result: ['Pequeno aumento de atributos que melhora eficiência no leveling.']
-  },
-  {
-    level: 50,
-    title: 'Nível 50 — Equipamento Éden II',
-    objective: 'Atualizar o equipamento principal.',
-    actions: [
-      { html: 'Completar a quest de Equipamentos do Éden II<br><small class="action-subnote">Nota: Realizar as missões em Orc Dungeon</small>.' },
-      { html: 'Você deve receber o <a href="https://www.divine-pride.net/database/item/13113/" target="_blank" rel="noreferrer noopener">Revólver do Éden II</a>' }
-    ],
-    result: ['Aumento significativo de ataque.'],
-    image: { src: 'assets/images/arma_eden_2.png', alt: 'Revólver do Éden II' }
-  },
-  {
-    level: 70,
-    title: 'Nível 70 — Equipamento Éden III',
-    objective: 'Preparar a build para a transição de classes futuras.',
-    actions: [
-      { text: 'Completar a quest de Equipamentos do Éden III.' },
-      { text: 'Realizar as missões em Abadia de Glast Heim.' },
-      { html: 'Você deve receber o <a href="https://www.divine-pride.net/database/item/13114/" target="_blank" rel="noreferrer noopener">Revólver do Éden III</a>.' },
-      { html: 'Encantar a Arma do Éden com o Especialista BK.' }
-    ],
-    note: 'A missão de nível 90 do NPC Ur geralmente não compensa o esforço para esta build.',
-    result: ['Novo pico de dano para leveling intermediário.'],
-    image: { src: 'assets/images/arma_eden_3.png', alt: 'Revólver do Éden III' }
-  },
-  {
-    level: 100,
-    title: 'Nível 100 — Insurgente',
-    objective: 'Desbloquear a classe avançada e iniciar progressão de equipamentos mais fortes.',
-    actions: [
-      { html: 'Completar a quest de mudança de classe para <a href="https://browiki.org/wiki/Mudan%C3%A7a_de_Classe:_Insurgentes" target="_blank" rel="noreferrer noopener">Insurgente</a>.' },
-      { html: 'Farmar Moedas do Éden no Grupo Éden.' },
-      { html: 'Obter <a href="https://browiki.org/wiki/Equipamento_Inicial" target="_blank" rel="noreferrer noopener">Equipamentos Iniciais</a>.' },
-      { html: 'Entrar no clã Cajado Celeste por meio dos <a href="https://browiki.org/wiki/Cl%C3%A3s_Reais" target="_blank" rel="noreferrer noopener">Clãs Reais</a>.' }
-    ],
-    result: ['Acesso às habilidades de Insurgente.', 'Novo ciclo de progressão de equipamentos.'],
-    image: { src: 'assets/images/arma_inicial.png', alt: 'Revólver Inicial' }
-  },
-  {
-    level: 110,
-    title: 'Nível 110 — Acessórios e Banquete Real',
-    objective: 'Obter novos acessórios e desbloquear conteúdo importante.',
-    actions: [
-      { html: 'Comprar: <a href="https://www.divine-pride.net/database/item/28463/" target="_blank" rel="noreferrer noopener">Anel Ágil do Éden I</a> ou <a href="https://www.divine-pride.net/database/item/28464/" target="_blank" rel="noreferrer noopener">Colar Ágil do Éden I</a>.' },
-      { html: 'Encantar os Acessórios do Éden com a Joalheira.' },
-      { html: 'Quest: <a href="https://browiki.org/wiki/Banquete_Real" target="_blank" rel="noreferrer noopener">Banquete Real</a>.' },
-      { html: 'Comprar: <a href="https://browiki.org/wiki/Equipamentos_de_Honra" target="_blank" rel="noreferrer noopener">Equipamentos de Honra</a>.' },
-      { html: 'Comprar: <a href="https://www.divine-pride.net/database/item/13197/minimetralhadora-2" target="_blank" rel="noreferrer noopener">Minimetralhadora [2]</a> (no NPC que vende munição).' }
-    ],
-    note: 'A quest pode começar no nível 100, mas é recomendado iniciar após obter a habilidade Expurgar.',
-    result: ['Grande aumento de dano graças à nova arma.'],
-    image: { src: 'assets/images/arma_106.png', alt: 'Minimetralhadora' }
-  },
-  {
-    level: 115,
-    title: 'Nível 115 — Sustentação de SP',
-    objective: 'Melhorar recuperação de recursos.',
-    actions: [
-      { html: 'Comprar: <a href="https://www.divine-pride.net/database/item/22123/" target="_blank" rel="noreferrer noopener">Coturnos do Éden II</a>' }
-    ],
-    result: ['Recuperação de SP que permite usar habilidades continuamente.'],
-    image: { src: 'assets/images/coturno_eden_1.png', alt: 'Coturnos do Éden I' }
-  },
-  {
-    level: 125,
-    title: 'Nível 125 — Equipamentos Ilustres',
-    objective: 'Avançar na progressão de equipamentos.',
-    actions: [
-      { html: 'Quest: <a href="https://browiki.org/wiki/Terra_Gloria" target="_blank" rel="noreferrer noopener">Terra Gloria</a>' },
-      { html: 'Comprar: <a href="https://browiki.org/wiki/Equipamentos_de_Honra" target="_blank" rel="noreferrer noopener">Equipamentos Ilustres</a>' }
-    ],
-    note: 'Apesar da quest iniciar no nível 100, aguardar até 125 facilita o uso imediato dos equipamentos.',
-    image: { src: 'assets/images/traje_honra.png', alt: 'Ilustre Traje Expurgante' }
-  },
-  {
-    level: 140,
-    title: 'Nível 140 — Nova Arma',
-    objective: 'Atualizar o armamento principal.',
-    actions: [
-      { html: 'Comprar: <a href="https://www.divine-pride.net/database/item/13198/metralhadora-da-tempestade" target="_blank" rel="noreferrer noopener">Metralhadora da Tempestade</a> (no NPC que vende munição).' }
-    ],
-    result: ['Novo pico de dano para o final do mid-game.'],
-    image: { src: 'assets/images/arma_140.png', alt: 'Metralhadora da Tempestade' }
-  },
-  {
-    level: 145,
-    title: 'Nível 145 — Sustentação Avançada',
-    objective: 'Melhorar ainda mais a recuperação de SP.',
-    actions: [
-      { html: 'Comprar: <a href="https://www.divine-pride.net/database/item/22125/" target="_blank" rel="noreferrer noopener">Coturnos do Éden IV</a>' }
-    ],
-    image: { src: 'assets/images/coturno_eden_1.png', alt: 'Coturnos do Éden IV' }
-  },
-  {
-    level: 150,
-    title: 'Nível 150 — Equipamentos Grácil',
-    objective: 'Avançar para equipamentos mais fortes.',
-    actions: [
-      { html: 'Quest: <a href="https://browiki.org/wiki/Ilusi%C3%B3n" target="_blank" rel="noreferrer noopener">Ilusión</a>' },
-      { html: 'Comprar: <a href="https://browiki.org/wiki/Equipamentos_de_Honra" target="_blank" rel="noreferrer noopener">Equipamentos Grácil</a>' }
-    ],
-    image: { src: 'assets/images/traje_honra.png', alt: 'Ilustre Traje Expurgante' }
-  },
-  {
-    level: 160,
-    title: 'Nível 160 — Utilidade e Mobilidade',
-    objective: 'Desbloquear habilidades utilitárias por meio de acessórios.',
-    actions: [
-      { html: 'Comprar: <a href="https://www.divine-pride.net/database/item/28472/" target="_blank" rel="noreferrer noopener">Colar Ágil do Éden V</a> (Habilidade: Teleporte)' },
-      { html: 'Comprar: <a href="https://www.divine-pride.net/database/item/28471/" target="_blank" rel="noreferrer noopener">Anel Ágil do Éden V</a> (Habilidade: Curar)' }
-    ],
-    result: ['Maior mobilidade;', 'Autossustentação durante o leveling.'],
-    image: { src: 'assets/images/colar_eden_5.png', alt: 'Colar Ágil do Éden V' }
+    levelId: 'level-100',
+    cardId: 'powerChartCard100to200',
+    svgId: 'powerChartHigh',
+    title: 'Curva de poder por nível de 100 a 200',
+    note: 'Eixo X: nível 100 a 200',
+    ariaLabel: 'Gráfico de poder por nível de 100 a 200'
   }
 ];
 
-const renderLevelDetails = () => {
+const insertChartCards = () => {
   const detailsContainer = document.getElementById('levelDetailsContainer');
   if (!detailsContainer) return;
 
-  detailsContainer.innerHTML = '';
-  levelGuideItems.forEach(item => {
-    if (item.level === 10) {
-      detailsContainer.appendChild(
-        createPowerChartCard(
-          'powerChartCard0to100',
-          'powerChartLow',
-          'Curva de poder por nível de 0 a 100',
-          'Eixo X: nível 0 a 100',
-          'Gráfico de poder por nível de 0 a 100'
-        )
-      );
+  chartInsertionPoints.forEach(config => {
+    const existingCard = document.getElementById(config.cardId);
+    if (existingCard) {
+      existingCard.remove();
     }
 
-    if (item.level === 100) {
-      detailsContainer.appendChild(
-        createPowerChartCard(
-          'powerChartCard100to200',
-          'powerChartHigh',
-          'Curva de poder por nível de 100 a 200',
-          'Eixo X: nível 100 a 200',
-          'Gráfico de poder por nível de 100 a 200'
-        )
-      );
-    }
+    const card = createPowerChartCard(
+      config.cardId,
+      config.svgId,
+      config.title,
+      config.note,
+      config.ariaLabel
+    );
 
-    const card = document.createElement('section');
-    card.className = 'level-card';
-    card.id = `level-${item.level}`;
-    const imageMarkup = item.image
-      ? `<div class="level-image"><img src="${item.image.src}" alt="${item.image.alt || item.title}" loading="lazy"></div>`
-      : '';
-    card.innerHTML = `
-      <h3><a href="#level-${item.level}">${item.title}</a></h3>
-      ${imageMarkup}
-      <p><strong>${TEXT.objectiveLabel}:</strong></p>
-      <ul class="level-bullets"><li>${item.objective}</li></ul>
-      <p><strong>${TEXT.actionsLabel}:</strong></p>
-      <ul class="level-bullets">
-        ${item.actions
-          .map(action =>
-            action.html
-              ? `<li>${action.html}</li>`
-              : action.url
-                ? `<li>${action.text}<br><a href="${action.url}" target="_blank" rel="noreferrer noopener">${action.url}</a></li>`
-                : `<li>${action.text}</li>`
-          )
-          .join('')}
-      </ul>
-      ${item.note ? `<p><strong>${TEXT.noteLabel}:</strong></p><ul class="level-bullets"><li>${item.note}</li></ul>` : ''}
-      ${item.result ? `<p><strong>${TEXT.resultLabel}:</strong></p><ul class="level-bullets">${item.result.map(result => `<li>${result}</li>`).join('')}</ul>` : ''}
-    `;
-    detailsContainer.appendChild(card);
+    const referenceNode = document.getElementById(config.levelId);
+    if (referenceNode && referenceNode.parentElement === detailsContainer) {
+      detailsContainer.insertBefore(card, referenceNode);
+    } else {
+      detailsContainer.appendChild(card);
+    }
   });
 };
 
@@ -500,7 +336,7 @@ const renderFooterVersion = () => {
   }
 };
 
-renderLevelDetails();
+insertChartCards();
 renderPowerCurveChart();
 renderWeaponAvailabilityChart();
-renderFooterVersion();
+//renderFooterVersion();

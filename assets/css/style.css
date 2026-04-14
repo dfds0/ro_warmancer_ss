@@ -334,3 +334,22 @@ footer {
 .center-img {
   text-align: center;
 }
+
+table {
+border-collapse: collapse;
+width: 100%;
+}
+
+th, td {
+border: 1px solid #ccc;
+padding: 6px;
+text-align: center;
+}
+
+th {
+  background: #0e4187;
+}
+
+.best-option {
+    color: yellow;
+}

@@ -362,3 +362,11 @@ th {
 .expurgar {
     background-image: url("assets/images/expurgar.png");
 }
+
+.sidequest {
+  background-color: #293d34;
+}
+
+.sidequest::before {
+  content: '🪖' !important;
+}

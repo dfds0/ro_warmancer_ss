@@ -1,24 +1,24 @@
 const powerDataPoints = [
   { level: 10, power: 50 },
   { level: 30, power: 100 },
-  { level: 40, power: 100 },
-  { level: 50, power: 180 },
-  { level: 70, power: 250 },
-  { level: 100, power: 350 },
-  { level: 110, power: 530, highlight: true },
-  { level: 115, power: 535 },
-  { level: 125, power: 585, highlight: true },
-  { level: 140, power: 810, highlight: true },
-  { level: 145, power: 815 },
-  { level: 150, power: 900, highlight: true },
-  { level: 160, power: 910 }
+  { level: 35, power: 200 },
+  { level: 50, power: 300 },
+  { level: 70, power: 400 },
+  { level: 100, power: 450 },
+  { level: 110, power: 630, highlight: true },
+  { level: 115, power: 635 },
+  { level: 125, power: 685, highlight: true },
+  { level: 140, power: 910, highlight: true },
+  { level: 145, power: 915 },
+  { level: 150, power: 1000, highlight: true },
+  { level: 160, power: 1010 }
 ];
 
 const weaponDataItems = [
-  { name: 'Pistola', ranges: [{ from: 10, to: 110 }], color: '#fb7185' },
-  { name: 'Metralhadora', ranges: [{ from: 110, to: 200 }], color: '#8b5cf6' },
-  { name: 'Rifle', ranges: [{ from: 150, to: 200 }], color: '#38bdf8' },
-  { name: 'Escopeta', ranges: [{ from: 130, to: 200 }], color: '#22c55e' },
+  //{ name: 'Pistola', ranges: [{ from: 10, to: 110 }], color: '#fb7185' },
+  { name: 'Escopeta', ranges: [{ from: 35, to: 200 }], color: '#fb7185' },
+  { name: 'Metralhadora', ranges: [{ from: 110, to: 200 }], color: '#38bdf8' },
+  { name: 'Rifle', ranges: [{ from: 10, to: 35 }], color: '#8b5cf6' },
   { name: 'L. Granada', ranges: [{ from: 150, to: 200 }], color: '#e879f9' }
 ];
 

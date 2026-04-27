@@ -1,17 +1,17 @@
 const powerDataPoints = [
-  { level: 10, power: 50 },
-  { level: 30, power: 100 },
-  { level: 35, power: 200 },
-  { level: 50, power: 300 },
-  { level: 70, power: 400 },
-  { level: 100, power: 450 },
-  { level: 110, power: 630, highlight: true },
-  { level: 115, power: 635 },
-  { level: 125, power: 685, highlight: true },
-  { level: 140, power: 910, highlight: true },
-  { level: 145, power: 915 },
-  { level: 150, power: 1000, highlight: true },
-  { level: 160, power: 1010 }
+  { level: 0, power: 0 },
+  { level: 10, power: 100 },
+  { level: 40, power: 200 },
+  { level: 50, power: 250 },
+  { level: 70, power: 300 },
+  { level: 100, power: 400 },
+  { level: 110, power: 500, highlight: true },
+  { level: 115, power: 550 },
+  { level: 125, power: 650, highlight: true },
+  { level: 140, power: 800, highlight: true },
+  { level: 145, power: 850 },
+  { level: 150, power: 950, highlight: true },
+  { level: 160, power: 1000 }
 ];
 
 const weaponDataItems = [

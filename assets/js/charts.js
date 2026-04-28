@@ -1,7 +1,7 @@
 const powerDataPoints = [
   { level: 0, power: 0 },
   { level: 10, power: 100 },
-  { level: 40, power: 200 },
+  { level: 30, power: 200 },
   { level: 50, power: 250 },
   { level: 70, power: 300 },
   { level: 100, power: 400 },
@@ -15,11 +15,11 @@ const powerDataPoints = [
 ];
 
 const weaponDataItems = [
-  //{ name: 'Pistola', ranges: [{ from: 10, to: 110 }], color: '#fb7185' },
-  { name: 'Escopeta', ranges: [{ from: 35, to: 200 }], color: '#fb7185' },
+  { name: 'Pistola', ranges: [{ from: 30, to: 110 }], color: '#fb7185' },
   { name: 'Metralhadora', ranges: [{ from: 110, to: 200 }], color: '#38bdf8' },
-  { name: 'Rifle', ranges: [{ from: 10, to: 35 }], color: '#8b5cf6' },
-  { name: 'L. Granada', ranges: [{ from: 150, to: 200 }], color: '#e879f9' }
+  { name: 'Rifle', ranges: [{ from: 10, to: 30 }], color: '#8b5cf6' },
+  { name: 'Escopeta', ranges: [{ from: 125, to: 200 }], color: '#71fb81' },
+  { name: 'L. Granada', ranges: [{ from: 125, to: 200 }], color: '#e879f9' }
 ];
 
 const TEXT = {

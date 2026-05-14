@@ -6,12 +6,11 @@ const powerDataPoints = [
   { level: 70, power: 300 },
   { level: 99, power: 301 },
   { level: 100, power: 400 },
-  { level: 106, power: 500, highlight: true },
-  { level: 115, power: 550 },
-  { level: 125, power: 650, highlight: true },
+  { level: 110, power: 500, highlight: true },
+  { level: 115, power: 600 },
+  { level: 125, power: 700, highlight: true },
   { level: 130, power: 700, highlight: true },
   { level: 140, power: 800, highlight: true },
-  { level: 145, power: 850 },
   { level: 150, power: 950, highlight: true },
   { level: 160, power: 1000 }
 ];

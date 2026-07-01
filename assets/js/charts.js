@@ -16,7 +16,8 @@ const powerDataPoints = [
   { level: 140, power: 560 },
   { level: 145, power: 600 },
   { level: 150, power: 640 },
-  { level: 160, power: 680 }
+  { level: 160, power: 680 },
+  { level: 170, power: 720 },
 ];
 
 const weaponDataItems = [
